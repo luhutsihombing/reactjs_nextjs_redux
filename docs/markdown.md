@@ -80,6 +80,30 @@ Components is element of pages. one component is reuseable.
 2. footer (`components/shared/footers/`)
 3. Banner (`components/partials/homepage/home-default/HomeBanner/`)
 
+### New component 
+
+1. create new file in folder components and adjust the naming
+2. and use that component on the page that needs it. As below,
+
+```javascript
+import NavigationTop from './modules/NavigationTop';
+...
+render() {
+        return (
+            <header
+                className="header header--1"
+                data-sticky="true"
+                id="headerSticky">
+                
+                <NavigationTop />
+                
+                <NavigationDefault />
+            </header>
+        );
+    }
+```
+
+
 ## Theme
 Theme configuration with Sass
 
@@ -126,3 +150,28 @@ Open _variable.scss scss/utils/_variable.scss .This place manages all colors:
 - $font-2nd: 'Libre Baskerville', serif;
 - $font-3rd: 'Playfair Display', serif;
 - $home: true !default;
+
+### New scss (customize)
+
+1. create new file in folder scss and adjust the naming with component
+2. and register that file in style.scss  (`scss/style.scss`) as below,
+
+```javascript
+@import 'components/new file';
+```
+
+###  scss on mobile view
+
+scss/modules/_header.scss
+
+```scss
+...
+@include media('<lg') {
+        /*luhut*/
+        display: none;
+        &.header--mobile {
+            display: block;
+        }
+    }
+ ...
+```

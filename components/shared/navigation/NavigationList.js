@@ -133,7 +133,7 @@ class NavigationList extends Component {
                         }`}
                         onClick={this.handleShowCartDrawer}>
                         <i className="icon-bag2"></i>
-                        <span> Cart</span>
+                        <span> Carting</span>
                     </a>
                 </div>
             </div>

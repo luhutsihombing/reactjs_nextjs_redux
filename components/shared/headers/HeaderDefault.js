@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import NavigationTop from './modules/NavigationTop';
 import NavigationDefault from '../navigation/NavigationDefault';
 import HeaderActions from './modules/HeaderActions';
 import MenuCategories from './modules/MenuCategories';
@@ -40,6 +41,7 @@ class HeaderDefault extends Component {
                 className="header header--1"
                 data-sticky="true"
                 id="headerSticky">
+                <NavigationTop />
                 <div className="header__top">
                     <div className="ps-container">
                         <div className="header__left">

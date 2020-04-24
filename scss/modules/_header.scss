@@ -184,6 +184,7 @@
     }
 
     @include media('<lg') {
+        /*luhut edited*/
         display: none;
         &.header--mobile {
             display: block;
@@ -885,6 +886,7 @@
     padding: 10px 30px;
     border-top: 1px solid #ccc;
     background-color: #ffffff;
+
 
     .navigation__item {
         text-align: center;
