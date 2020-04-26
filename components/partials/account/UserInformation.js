@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import '@ant-design/compatible/assets/index.css';
-import { Input, Radio, DatePicker, Form } from 'antd';
+import { DatePicker, Form, Input, Radio } from 'antd';
 
 class UserInformation extends Component {
     constructor(props) {
@@ -43,6 +43,7 @@ class UserInformation extends Component {
             },
         ];
         const { getFieldDecorator } = this.props.form;
+        let a;
         return (
             <section className="ps-my-account ps-page--account">
                 <div className="container">
