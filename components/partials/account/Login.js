@@ -3,7 +3,9 @@ import Link from 'next/link';
 import Router from 'next/router';
 import { login } from '../../../store/auth/action';
 
-import { Form, Input, notification } from 'antd';
+import '@ant-design/compatible/assets/index.css';
+
+import { Input, notification, Form } from 'antd';
 import { connect } from 'react-redux';
 
 class Login extends Component {
@@ -165,7 +167,7 @@ class Login extends Component {
         );
     }
 }
-const WrapFormLogin = Form.create()(Login);
+const WrapFormLogin = Form.useForm(Login);
 const mapStateToProps = state => {
     return state.auth;
 };

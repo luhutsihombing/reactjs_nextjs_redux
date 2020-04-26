@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 
-import { Form, Input } from 'antd';
+import '@ant-design/compatible/assets/index.css';
+
+import { Input, Form } from 'antd';
 
 class FormCheckoutInformation extends Component {
     constructor(props) {
@@ -284,6 +286,6 @@ class FormCheckoutInformation extends Component {
     }
 }
 
-const WrapForm = Form.create()(FormCheckoutInformation);
+const WrapForm = Form.useForm(FormCheckoutInformation);
 
 export default WrapForm;

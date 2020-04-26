@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
-import { Form, Input, Radio, DatePicker } from 'antd';
+import '@ant-design/compatible/assets/index.css';
+import { Form } from 'antd';
 import AccountMenuSidebar from './modules/AccountMenuSidebar';
 import TableNotifications from './modules/TableNotifications';
 
@@ -50,7 +50,7 @@ class Notifications extends Component {
                     <div className="row">
                         <div className="col-lg-4">
                             <div className="ps-page__left">
-                                <AccountMenuSidebar data={accountLinks} />
+                                <AccountMenuSidebar data={accountLinks}/>
                             </div>
                         </div>
                         <div className="col-lg-8">
@@ -60,7 +60,7 @@ class Notifications extends Component {
                                         <h3>Notifications</h3>
                                     </div>
                                     <div className="ps-section__content">
-                                        <TableNotifications />
+                                        <TableNotifications/>
                                     </div>
                                 </div>
                             </div>
@@ -71,5 +71,6 @@ class Notifications extends Component {
         );
     }
 }
-const WrapFormNotifications = Form.create()(Notifications);
+
+const WrapFormNotifications = Form.useForm(Notifications);
 export default WrapFormNotifications;

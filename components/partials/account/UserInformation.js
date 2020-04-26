@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
-import { Form, Input, Radio, DatePicker } from 'antd';
+import '@ant-design/compatible/assets/index.css';
+import { Input, Radio, DatePicker, Form } from 'antd';
 
 class UserInformation extends Component {
     constructor(props) {
@@ -224,5 +225,5 @@ class UserInformation extends Component {
         );
     }
 }
-const WrapFormUserInformation = Form.create()(UserInformation);
+const WrapFormUserInformation = Form.useForm(UserInformation);
 export default WrapFormUserInformation;
