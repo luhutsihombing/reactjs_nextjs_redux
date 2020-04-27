@@ -10,7 +10,6 @@ import DefaultLayout from '../components/layouts/DefaultLayout.js';
 
 import '../scss/style.scss';
 import '../scss/home-default.scss';
-
 // development purpose
 import '../scss/autopart.scss';
 import '../scss/electronic.scss';
@@ -23,6 +22,7 @@ import '../scss/organic.scss';
 import '../scss/technology.scss';
 
 
+// TODO(alwan) migrate all .js files to typescript. start from init tsconfig.json
 class MyApp extends App {
     constructor(props) {
         super(props);
