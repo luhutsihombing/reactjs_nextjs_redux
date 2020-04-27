@@ -10,16 +10,30 @@ import NavigationList from '../../components/shared/navigation/NavigationList';
 import ShopBrands from '../../components/partials/shop/ShopBrands';
 import ShopBanner from '../../components/partials/shop/ShopBanner';
 import ShopCategories from '../../components/partials/shop/ShopCategories';
-import {
-    getProducts,
-    getProductsByCategory,
-    getProductsByBrand,
-} from '../../store/product/action';
+import { getProducts, getProductsByBrand, getProductsByCategory } from '../../store/product/action';
 
 class ShopFullwidthPage extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    static async getInitialProps(ctx) {
+        if (Object.entries(ctx.query).length > 0) {
+            if (ctx.query.category) {
+                ctx.store.dispatch(getProductsByCategory(ctx.query.category));
+            } else {
+                if (ctx.query.brand !== '') {
+                    ctx.store.dispatch(getProductsByBrand(ctx.query.brand));
+                } else {
+                    ctx.store.dispatch(getProducts());
+                }
+            }
+        } else {
+            ctx.store.dispatch(getProducts());
+        }
+        return { query: ctx.query };
+    }
+
 
     render() {
         const breadCrumb = [
@@ -51,23 +65,6 @@ class ShopFullwidthPage extends React.Component {
             </div>
         );
     }
-}
-
-export async function getServerSideProps(ctx) {
-    if (Object.entries(ctx.query).length > 0) {
-        if (ctx.query.category) {
-            ctx.store.dispatch(getProductsByCategory(ctx.query.category));
-        } else {
-            if (ctx.query.brand !== '') {
-                ctx.store.dispatch(getProductsByBrand(ctx.query.brand));
-            } else {
-                ctx.store.dispatch(getProducts());
-            }
-        }
-    } else {
-        ctx.store.dispatch(getProducts());
-    }
-    return { query: ctx.query };
 }
 
 export default connect(state => state.product)(ShopFullwidthPage);

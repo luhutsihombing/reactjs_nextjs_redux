@@ -7,16 +7,28 @@ import BreadCrumb from '../../components/elements/BreadCrumb';
 import LayoutShopSidebar from '../../components/partials/shop/LayoutShopSidebar';
 import HeaderMobile from '../../components/shared/headers/HeaderMobile';
 import NavigationList from '../../components/shared/navigation/NavigationList';
-import {
-    getProducts,
-    getProductsByCategory,
-    getProductsByBrand,
-} from '../../store/product/action';
-import { GetServerSideProps } from 'next';
+import { getProducts, getProductsByBrand, getProductsByCategory } from '../../store/product/action';
 
 class ShopSidebarPage extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    static async getInitialProps(ctx) {
+        if (Object.entries(ctx.query).length > 0) {
+            if (ctx.query.category) {
+                ctx.store.dispatch(getProductsByCategory(ctx.query.category));
+            } else {
+                if (ctx.query.brand !== '') {
+                    ctx.store.dispatch(getProductsByBrand(ctx.query.brand));
+                } else {
+                    ctx.store.dispatch(getProducts());
+                }
+            }
+        } else {
+            ctx.store.dispatch(getProducts());
+        }
+        return { query: ctx.query };
     }
 
     render() {
@@ -46,23 +58,6 @@ class ShopSidebarPage extends React.Component {
             </div>
         );
     }
-}
-
-export async function getServerSideProps(ctx) {
-    if (Object.entries(ctx.query).length > 0) {
-        if (ctx.query.category) {
-            ctx.store.dispatch(getProductsByCategory(ctx.query.category));
-        } else {
-            if (ctx.query.brand !== '') {
-                ctx.store.dispatch(getProductsByBrand(ctx.query.brand));
-            } else {
-                ctx.store.dispatch(getProducts());
-            }
-        }
-    } else {
-        ctx.store.dispatch(getProducts());
-    }
-    return { query: ctx.query };
 }
 
 export default connect(state => state.product)(ShopSidebarPage);

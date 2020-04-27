@@ -19,6 +19,11 @@ class ProductDefaultPage extends React.Component {
         super(props);
     }
 
+    static async getInitialProps(ctx) {
+        ctx.store.dispatch(getProductsById(ctx.query.pid));
+        return { query: ctx.query };
+    }
+
     componentDidMount() {
         const { pid } = this.props.query;
         if (isNaN(pid)) {
@@ -69,11 +74,6 @@ class ProductDefaultPage extends React.Component {
             </div>
         );
     }
-}
-
-export async function getServerSideProps(ctx) {
-    ctx.store.dispatch(getProductsById(ctx.query.pid));
-    return { query: ctx.query };
 }
 
 export default connect(state => state.product)(ProductDefaultPage);

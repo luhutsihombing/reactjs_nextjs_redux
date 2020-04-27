@@ -29,6 +29,11 @@ class MyApp extends App {
         this.persistor = persistStore(props.store);
     }
 
+    static async getInitialProps({Component, ctx}) {
+        const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+        return { pageProps };
+    }
+
     componentDidMount() {
         setTimeout(function() {
             document.getElementById('__next').classList.add('loaded');
@@ -36,6 +41,7 @@ class MyApp extends App {
 
         this.setState({ open: true });
     }
+
     render() {
         const { Component, pageProps, store } = this.props;
         const getLayout =
