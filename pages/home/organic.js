@@ -15,7 +15,7 @@ import OrganicClientSay from '../../components/partials/homepage/organic/Organic
 import HeaderMobileOrganic from '../../components/shared/headers/HeaderMobileOrganic';
 import { organicWidget } from '../../public/static/data/organic';
 import SubscribePopup from '../../components/shared/SubscribePopup';
-import '../../scss/organic.scss';
+// import '../../scss/organic.scss';
 
 const HomeOrganicPage = () => {
     const [subscribe, setSubscribe] = useState(false);

@@ -13,7 +13,7 @@ import HeaderFurniture from '../../components/shared/headers/HeaderFurniture';
 import FooterFurniture from '../../components/shared/footers/FooterFurniture';
 import HeaderMobileFurniture from '../../components/shared/headers/HeaderMobileFurniture';
 import SubscribePopup from '../../components/shared/SubscribePopup';
-import '../../scss/furniture.scss';
+// import '../../scss/furniture.scss';
 
 const HomeFurniturePage = () => {
     const [subscribe, setSubscribe] = useState(false);

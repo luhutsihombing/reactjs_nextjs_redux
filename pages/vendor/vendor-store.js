@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FooterDefault from '../../components/shared/footers/FooterDefault';
 import BreadCrumb from '../../components/elements/BreadCrumb';
 import Newletters from '../../components/partials/commons/Newletters';
@@ -20,15 +20,15 @@ const VendorStorePage = () => {
 
     return (
         <div className="site-content">
-            <HeaderDefault />
-            <HeaderMobile />
-            <NavigationList />
+            <HeaderDefault/>
+            <HeaderMobile/>
+            <NavigationList/>
             <div className="ps-page--single ps-page--vendor">
-                <BreadCrumb breacrumb={breadCrumb} />
-                <VendorStore />
+                <BreadCrumb breacrumb={breadCrumb}/>
+                <VendorStore/>
             </div>
-            <Newletters layout="container" />
-            <FooterDefault />
+            <Newletters layout="container"/>
+            <FooterDefault/>
         </div>
     );
 };

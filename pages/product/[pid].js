@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import Router, { useRouter } from 'next/router';
+import React from 'react';
+import Router from 'next/router';
 import { connect } from 'react-redux';
 
 import FooterDefault from '../../components/shared/footers/FooterDefault';
@@ -23,6 +23,7 @@ class ProductDefaultPage extends React.Component {
         ctx.store.dispatch(getProductsById(ctx.query.pid));
         return { query: ctx.query };
     }
+
     componentDidMount() {
         const { pid } = this.props.query;
         if (isNaN(pid)) {
@@ -48,10 +49,10 @@ class ProductDefaultPage extends React.Component {
 
         return (
             <div className="site-content">
-                <HeaderProduct productData={singleProduct} />
-                <HeaderMobileProduct />
-                <NavigationList />
-                <BreadCrumb breacrumb={breadCrumb} layout="fullwidth" />
+                <HeaderProduct productData={singleProduct}/>
+                <HeaderMobileProduct/>
+                <NavigationList/>
+                <BreadCrumb breacrumb={breadCrumb} layout="fullwidth"/>
                 <div className="ps-page--product">
                     <div className="ps-container">
                         <div className="ps-page__container">
@@ -61,15 +62,15 @@ class ProductDefaultPage extends React.Component {
                                 />
                             </div>
                             <div className="ps-page__right">
-                                <ProductWidgets />
+                                <ProductWidgets/>
                             </div>
                         </div>
-                        <CustomerBought layout="fullwidth" />
-                        <RelatedProductFullwidth />
+                        <CustomerBought layout="fullwidth"/>
+                        <RelatedProductFullwidth/>
                     </div>
                 </div>
-                <Newletters />
-                <FooterDefault />
+                <Newletters/>
+                <FooterDefault/>
             </div>
         );
     }

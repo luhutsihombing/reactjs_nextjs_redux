@@ -6,7 +6,6 @@ import { notification } from 'antd';
 import SearchHeader from './modules/SearchHeader';
 import MiniCart from './modules/MiniCart';
 import AccountQuickLinks from './modules/AccountQuickLinks';
-import { logOut } from '../../../store/auth/action';
 import CurrencyDropdown from './modules/CurrencyDropdown';
 
 class HeaderAutoPart extends Component {
@@ -109,14 +108,14 @@ class HeaderAutoPart extends Component {
                                     </Link>
                                 </li>
                                 <li>
-                                    <CurrencyDropdown />
+                                    <CurrencyDropdown/>
                                 </li>
                                 <li>
                                     {auth.isLoggedIn &&
                                     Boolean(auth.isLoggedIn) === true ? (
-                                        <AccountQuickLinks isLoggedIn={true} />
+                                        <AccountQuickLinks isLoggedIn={true}/>
                                     ) : (
-                                        <AccountQuickLinks isLoggedIn={false} />
+                                        <AccountQuickLinks isLoggedIn={false}/>
                                     )}
                                 </li>
                             </ul>
@@ -181,7 +180,7 @@ class HeaderAutoPart extends Component {
                             </div>
                         </div>
                         <div className="header__content-center">
-                            <SearchHeader />
+                            <SearchHeader/>
                         </div>
                         <div className="header__content-right">
                             <div className="header__actions">
@@ -196,7 +195,7 @@ class HeaderAutoPart extends Component {
                                         </p>
                                     </div>
                                 </div>
-                                <MiniCart />
+                                <MiniCart/>
                             </div>
                         </div>
                     </div>

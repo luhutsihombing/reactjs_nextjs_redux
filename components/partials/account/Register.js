@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { login } from '../../../store/auth/action';
-
-import '@ant-design/compatible/assets/index.css';
-
 import { Input, Form } from 'antd';
 import { connect } from 'react-redux';
 class Register extends Component {

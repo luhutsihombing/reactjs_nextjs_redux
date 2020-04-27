@@ -14,7 +14,7 @@ import HeaderTechnology from '../../components/shared/headers/HeaderTechnology';
 import FooterTechnology from '../../components/shared/footers/FooterTechnology';
 import HeaderMobileTechnology from '../../components/shared/headers/HeaderMobileTechnology';
 import SubscribePopup from '../../components/shared/SubscribePopup';
-import '../../scss/technology.scss';
+// import '../../scss/technology.scss';
 
 const HomeTechnologyPage = () => {
     const [subscribe, setSubscribe] = useState(false);

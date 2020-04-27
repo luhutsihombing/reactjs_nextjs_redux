@@ -8,7 +8,7 @@ import MarketPlace3DealOfDay from '../../components/partials/homepage/marketplac
 import MarketPlace3SearchTrending from '../../components/partials/homepage/marketplace3/MarketPlace3SearchTrending';
 import HeaderMarketPlace3 from '../../components/shared/headers/HeaderMarketPlace3';
 import SubscribePopup from '../../components/shared/SubscribePopup';
-import '../../scss/market-place-3.scss';
+// import '../../scss/market-place-3.scss';
 
 const HomeMarketPlace3Page = () => {
     const [subscribe, setSubscribe] = useState(false);

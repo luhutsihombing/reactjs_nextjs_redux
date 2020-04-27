@@ -12,7 +12,7 @@ import ElectronicCamera from '../../components/partials/homepage/electronic/Elec
 import HeaderElectronic from '../../components/shared/headers/HeaderElectronic';
 import HeaderMobileElectronic from '../../components/shared/headers/HeaderMobileElectronic';
 import SubscribePopup from '../../components/shared/SubscribePopup';
-import '../../scss/electronic.scss';
+// import '../../scss/electronic.scss';
 
 const HomeMarketPlace4Page = () => {
     const [subscribe, setSubscribe] = useState(false);

@@ -31,7 +31,7 @@ const BlogLeftSidebar = () => {
                             scrolling="no"
                             frameBorder="no"
                             src="https://w.soundcloud.com/player/?visual=true&amp;amp;url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F323674116&amp;amp;show_artwork=true&amp;amp;maxwidth=840&amp;amp;maxheight=1000&amp;amp;dnt=1"
-                            id="fitvid0"></iframe>
+                            id="fitvid0"/>
                     </div>
                     <BlogDetailSidebar />
                 </div>

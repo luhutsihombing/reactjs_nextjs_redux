@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '@ant-design/compatible/assets/index.css';
 import { Form } from 'antd';
 import AccountMenuSidebar from './modules/AccountMenuSidebar';
 import TableNotifications from './modules/TableNotifications';

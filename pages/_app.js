@@ -9,6 +9,19 @@ import createStore from '../store/store';
 import DefaultLayout from '../components/layouts/DefaultLayout.js';
 
 import '../scss/style.scss';
+import '../scss/home-default.scss';
+
+// development purpose
+import '../scss/autopart.scss';
+import '../scss/electronic.scss';
+import '../scss/furniture.scss';
+import '../scss/market-place-1.scss';
+import '../scss/market-place-2.scss';
+import '../scss/market-place-3.scss';
+import '../scss/market-place-4.scss';
+import '../scss/organic.scss';
+import '../scss/technology.scss';
+
 
 class MyApp extends App {
     constructor(props) {
@@ -26,7 +39,7 @@ class MyApp extends App {
     render() {
         const { Component, pageProps, store } = this.props;
         const getLayout =
-            Component.getLayout || (page => <DefaultLayout children={page} />);
+            Component.getLayout || (page => <DefaultLayout>{page}</DefaultLayout>);
         return getLayout(
             <Provider store={store}>
                 <PersistGate

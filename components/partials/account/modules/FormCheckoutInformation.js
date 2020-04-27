@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
-
-import '@ant-design/compatible/assets/index.css';
-
 import { Input, Form } from 'antd';
 
 class FormCheckoutInformation extends Component {

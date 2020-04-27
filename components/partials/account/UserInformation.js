@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
-import '@ant-design/compatible/assets/index.css';
 import { DatePicker, Form, Input, Radio } from 'antd';
 
 class UserInformation extends Component {

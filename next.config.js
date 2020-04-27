@@ -11,4 +11,4 @@ const nextSettings = {
     },
 };
 
-module.exports = withPlugins([[withSass(), withImages()]]);
+module.exports = withPlugins([withSass(), withImages()]);

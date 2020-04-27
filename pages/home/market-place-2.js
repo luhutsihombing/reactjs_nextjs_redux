@@ -9,7 +9,7 @@ import MarketPlace2Promotions from '../../components/partials/homepage/marketpla
 import HeaderMarketPlace2 from '../../components/shared/headers/HeaderMarketPlace2';
 import FooterMarketPlace2 from '../../components/shared/footers/FooterMarketPlace2';
 import SubscribePopup from '../../components/shared/SubscribePopup';
-import '../../scss/market-place-2.scss';
+// import '../../scss/market-place-2.scss';
 
 const HomeMarketPlace2Page = () => {
     const [subscribe, setSubscribe] = useState(false);

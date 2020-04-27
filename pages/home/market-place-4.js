@@ -13,7 +13,7 @@ import FooterMarketPlace2 from '../../components/shared/footers/FooterMarketPlac
 import SubscribePopup from '../../components/shared/SubscribePopup';
 import { productWidget } from '../../public/static/data/martketplace';
 
-import '../../scss/market-place-4.scss';
+// import '../../scss/market-place-4.scss';
 
 const HomeMarketPlace4Page = () => {
     const [subscribe, setSubscribe] = useState(false);

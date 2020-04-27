@@ -3,7 +3,6 @@ import Newsletters from '../../components/partials/commons/Newletters';
 import FooterDefault from '../../components/shared/footers/FooterDefault';
 import HeaderDefault from '../../components/shared/headers/HeaderDefault';
 import BreadCrumb from '../../components/elements/BreadCrumb';
-import Checkout from '../../components/partials/account/Checkout';
 import Compare from '../../components/partials/account/Compare';
 import HeaderMobile from '../../components/shared/headers/HeaderMobile';
 import NavigationList from '../../components/shared/navigation/NavigationList';
@@ -20,15 +19,15 @@ const ComparePage = () => {
     ];
     return (
         <div className="site-content">
-            <HeaderDefault />
-            <HeaderMobile />
-            <NavigationList />
+            <HeaderDefault/>
+            <HeaderMobile/>
+            <NavigationList/>
             <div className="ps-page--simple">
-                <BreadCrumb breacrumb={breadCrumb} />
-                <Compare />
+                <BreadCrumb breacrumb={breadCrumb}/>
+                <Compare/>
             </div>
-            <Newsletters layout="container" />
-            <FooterDefault />
+            <Newsletters layout="container"/>
+            <FooterDefault/>
         </div>
     );
 };

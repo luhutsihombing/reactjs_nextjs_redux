@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-
-import DefaultLayout from '../../components/layouts/DefaultLayout';
+import React from 'react';
 import FooterDefault from '../../components/shared/footers/FooterDefault';
 import HeaderDefault from '../../components/shared/headers/HeaderDefault';
 import Newletters from '../../components/partials/commons/Newletters';
@@ -33,26 +31,26 @@ const ProductOnSalePage = () => {
 
     return (
         <div className="site-content">
-            <HeaderDefault />
-            <HeaderMobile />
-            <NavigationList />
-            <BreadCrumb breacrumb={breadCrumb} />
+            <HeaderDefault/>
+            <HeaderMobile/>
+            <NavigationList/>
+            <BreadCrumb breacrumb={breadCrumb}/>
             <div className="ps-page--product reverse">
                 <div className="container">
                     <div className="ps-page__container">
                         <div className="ps-page__left">
-                            <ProductDetailSidebar />
+                            <ProductDetailSidebar/>
                         </div>
                         <div className="ps-page__right">
-                            <ProductWidgets />
+                            <ProductWidgets/>
                         </div>
                     </div>
-                    <CustomerBought />
-                    <RelatedProduct />
+                    <CustomerBought/>
+                    <RelatedProduct/>
                 </div>
             </div>
-            <Newletters />
-            <FooterDefault />
+            <Newletters/>
+            <FooterDefault/>
         </div>
     );
 };

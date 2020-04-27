@@ -38,7 +38,7 @@ const Page404 = () => {
                                 placeholder="Search..."
                             />
                             <button>
-                                <i className="icon-magnifier"></i>
+                                <i className="icon-magnifier"/>
                             </button>
                         </form>
                     </div>
