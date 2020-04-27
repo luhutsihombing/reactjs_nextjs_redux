@@ -43,7 +43,6 @@ class UserInformation extends Component {
             },
         ];
         const { getFieldDecorator } = this.props.form;
-        let a;
         return (
             <section className="ps-my-account ps-page--account">
                 <div className="container">
