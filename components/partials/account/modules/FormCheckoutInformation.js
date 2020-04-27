@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
-import { Input, Form } from 'antd';
+import { Form, Input } from 'antd';
 
 class FormCheckoutInformation extends Component {
     constructor(props) {
         super(props);
     }
 
-    handleLoginSubmit = e => {
+    handleLoginSubmit(e) {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
+        this.props.form.validateFields().then(value => {
+            if (value) {
                 Router.push('/account/shipping');
-            } else {
             }
         });
-    };
+    }
 
     render() {
-        const { getFieldDecorator } = this.props.form;
         const { amount, cartItems, cartTotal } = this.props;
         return (
             <Form
-                className="ps-form--checkout"
-                onSubmit={this.handleLoginSubmit}>
+                onFinish={this.handleLoginSubmit}
+                className="ps-form--checkout">
                 <div className="ps-form__content">
                     <div className="row">
                         <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12">
@@ -33,22 +31,15 @@ class FormCheckoutInformation extends Component {
                                     Contact information
                                 </h3>
                                 <div className="form-group">
-                                    <Form.Item>
-                                        {getFieldDecorator('text', {
-                                            rules: [
-                                                {
-                                                    required: true,
-                                                    message:
-                                                        'Enter an email or mobile phone number!',
-                                                },
-                                            ],
-                                        })(
-                                            <Input
-                                                className="form-control"
-                                                type="text"
-                                                placeholder="Email or phone number"
-                                            />,
-                                        )}
+                                    <Form.Item name="text" rules={[{
+                                        required: true,
+                                        message: 'Enter an email or mobile phone number!',
+                                    }]}>
+                                        <Input
+                                            className="form-control"
+                                            type="text"
+                                            placeholder="Email or phone number"
+                                        />
                                     </Form.Item>
                                 </div>
                                 <div className="form-group">
@@ -70,131 +61,83 @@ class FormCheckoutInformation extends Component {
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <div className="form-group">
-                                            <Form.Item>
-                                                {getFieldDecorator(
-                                                    'firstName',
-                                                    {
-                                                        rules: [
-                                                            {
-                                                                required: true,
-                                                                message:
-                                                                    'Enter your first name!',
-                                                            },
-                                                        ],
-                                                    },
-                                                )(
-                                                    <Input
-                                                        className="form-control"
-                                                        type="text"
-                                                        placeholder="First Name"
-                                                    />,
-                                                )}
+                                            <Form.Item name="firstName" rules={[{
+                                                required: true,
+                                                message: 'Enter your first name!',
+                                            }]}>
+                                                <Input
+                                                    className="form-control"
+                                                    type="text"
+                                                    placeholder="First Name"
+                                                />
                                             </Form.Item>
                                         </div>
                                     </div>
                                     <div className="col-sm-6">
                                         <div className="form-group">
-                                            <Form.Item>
-                                                {getFieldDecorator('lastName', {
-                                                    rules: [
-                                                        {
-                                                            required: true,
-                                                            message:
-                                                                'Enter your last name!',
-                                                        },
-                                                    ],
-                                                })(
-                                                    <Input
-                                                        className="form-control"
-                                                        type="text"
-                                                        placeholder="Last Name"
-                                                    />,
-                                                )}
+                                            <Form.Item name="firstName" rules={[{
+                                                required: true,
+                                                message: 'Enter your last name!',
+                                            }]}>
+                                                <Input
+                                                    className="form-control"
+                                                    type="text"
+                                                    placeholder="Last Name"
+                                                />
                                             </Form.Item>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <Form.Item>
-                                        {getFieldDecorator('address', {
-                                            rules: [
-                                                {
-                                                    required: true,
-                                                    message:
-                                                        'Enter an address!',
-                                                },
-                                            ],
-                                        })(
-                                            <Input
-                                                className="form-control"
-                                                type="text"
-                                                placeholder="Address"
-                                            />,
-                                        )}
+                                    <Form.Item name="address" rules={[{
+                                        required: true,
+                                        message: 'Enter an address!',
+                                    }]}>
+                                        <Input
+                                            className="form-control"
+                                            type="text"
+                                            placeholder="Address"
+                                        />
                                     </Form.Item>
                                 </div>
                                 <div className="form-group">
-                                    <Form.Item>
-                                        {getFieldDecorator('apartment', {
-                                            rules: [
-                                                {
-                                                    required: false,
-                                                    message:
-                                                        'Enter an Apartment!',
-                                                },
-                                            ],
-                                        })(
-                                            <Input
-                                                className="form-control"
-                                                type="text"
-                                                placeholder="Apartment, suite, etc. (optional)"
-                                            />,
-                                        )}
+                                    <Form.Item name="apartment" rules={[{
+                                        required: false,
+                                        message: 'Enter an Apartment!',
+                                    }]}>
+                                        <Input
+                                            className="form-control"
+                                            type="text"
+                                            placeholder="Apartment, suite, etc. (optional)"
+                                        />
                                     </Form.Item>
                                 </div>
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <div className="form-group">
-                                            <Form.Item>
-                                                {getFieldDecorator('city', {
-                                                    rules: [
-                                                        {
-                                                            required: false,
-                                                            message:
-                                                                'Enter a city!',
-                                                        },
-                                                    ],
-                                                })(
-                                                    <Input
-                                                        className="form-control"
-                                                        type="city"
-                                                        placeholder="City"
-                                                    />,
-                                                )}
+                                            <Form.Item name="city" rules={[{
+                                                required: false,
+                                                message: 'Enter an city!',
+                                            }]}>
+                                                <Input
+                                                    className="form-control"
+                                                    type="city"
+                                                    placeholder="City"
+                                                />
                                             </Form.Item>
                                         </div>
                                     </div>
                                     <div className="col-sm-6">
                                         <div className="form-group">
-                                            <Form.Item>
-                                                {getFieldDecorator(
-                                                    'postalCode',
-                                                    {
-                                                        rules: [
-                                                            {
-                                                                required: false,
-                                                                message:
-                                                                    'Enter a postal oce!',
-                                                            },
-                                                        ],
-                                                    },
-                                                )(
-                                                    <Input
-                                                        className="form-control"
-                                                        type="postalCode"
-                                                        placeholder="Postal Code"
-                                                    />,
-                                                )}
+                                            <Form.Item name="postalCode" rules={[{
+                                                required: false,
+                                                message: 'Enter a postal code!',
+                                            }]}>
+                                                <Input
+                                                    className="form-control"
+                                                    type="postalCode"
+                                                    placeholder="Postal Code"
+                                                />
                                             </Form.Item>
                                         </div>
                                     </div>
@@ -214,7 +157,7 @@ class FormCheckoutInformation extends Component {
                                 <div className="ps-form__submit">
                                     <Link href="/account/cart">
                                         <a>
-                                            <i className="icon-arrow-left mr-2"></i>
+                                            <i className="icon-arrow-left mr-2"/>
                                             Return to shopping cart
                                         </a>
                                     </Link>
@@ -283,6 +226,4 @@ class FormCheckoutInformation extends Component {
     }
 }
 
-const WrapForm = Form.useForm(FormCheckoutInformation);
-
-export default WrapForm;
+export default FormCheckoutInformation;

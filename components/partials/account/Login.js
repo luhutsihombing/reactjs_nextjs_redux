@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { login } from '../../../store/auth/action';
-import { Input, notification, Form } from 'antd';
+import { Form, Input, notification } from 'antd';
 import { connect } from 'react-redux';
 
 class Login extends Component {
@@ -12,7 +12,7 @@ class Login extends Component {
     }
 
     static getDerivedStateFromProps(props) {
-        if (props.isLoggedIn === true) {
+        if (props.isLoggedIn) {
             Router.push('/');
         }
         return false;
@@ -27,10 +27,10 @@ class Login extends Component {
         });
     }
 
-    handleLoginSubmit = e => {
+    handleLoginSubmit(e) {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
+        this.props.form.validateFields().then(value => {
+            if (value) {
                 this.props.dispatch(login());
                 Router.push('/');
             }
@@ -38,13 +38,12 @@ class Login extends Component {
     };
 
     render() {
-        const { getFieldDecorator } = this.props.form;
         return (
             <div className="ps-my-account">
                 <div className="container">
                     <Form
                         className="ps-form--account"
-                        onSubmit={this.handleLoginSubmit}>
+                        onFinish={this.handleLoginSubmit}>
                         <ul className="ps-tab-list">
                             <li className="active">
                                 <Link href="/account/login">
@@ -61,41 +60,29 @@ class Login extends Component {
                             <div className="ps-form__content">
                                 <h5>Log In Your Account</h5>
                                 <div className="form-group">
-                                    <Form.Item>
-                                        {getFieldDecorator('username', {
-                                            rules: [
-                                                {
-                                                    required: true,
-                                                    message:
-                                                        'Please input your username!',
-                                                },
-                                            ],
-                                        })(
-                                            <Input
-                                                className="form-control"
-                                                type="text"
-                                                placeholder="Username or email address"
-                                            />
-                                        )}
+                                    <Form.Item name="username" rules={[{
+                                        required: true,
+                                        message:
+                                            'Please input your username!',
+                                    }]}>
+                                        <Input
+                                            className="form-control"
+                                            type="text"
+                                            placeholder="Username or email address"
+                                        />
                                     </Form.Item>
                                 </div>
                                 <div className="form-group form-forgot">
-                                    <Form.Item>
-                                        {getFieldDecorator('password', {
-                                            rules: [
-                                                {
-                                                    required: true,
-                                                    message:
-                                                        'Please input your password!',
-                                                },
-                                            ],
-                                        })(
-                                            <Input
-                                                className="form-control"
-                                                type="password"
-                                                placeholder="Password..."
-                                            />
-                                        )}
+                                    <Form.Item name="password" rules={[{
+                                        required: true,
+                                        message:
+                                            'Please input your password!',
+                                    }]}>
+                                        <Input
+                                            className="form-control"
+                                            type="password"
+                                            placeholder="Password..."
+                                        />
                                     </Form.Item>
                                 </div>
                                 <div className="form-group">
@@ -163,8 +150,8 @@ class Login extends Component {
         );
     }
 }
-const WrapFormLogin = Form.useForm(Login);
+
 const mapStateToProps = state => {
     return state.auth;
 };
-export default connect(mapStateToProps)(WrapFormLogin);
+export default connect(mapStateToProps)(Login);

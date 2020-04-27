@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Form } from 'antd';
 import AccountMenuSidebar from './modules/AccountMenuSidebar';
 import TableNotifications from './modules/TableNotifications';
 
@@ -71,5 +70,4 @@ class Notifications extends Component {
     }
 }
 
-const WrapFormNotifications = Form.useForm(Notifications);
-export default WrapFormNotifications;
+export default Notifications;

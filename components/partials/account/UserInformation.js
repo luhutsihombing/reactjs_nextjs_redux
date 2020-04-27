@@ -41,7 +41,6 @@ class UserInformation extends Component {
                 icon: 'icon-heart',
             },
         ];
-        const { getFieldDecorator } = this.props.form;
         return (
             <section className="ps-my-account ps-page--account">
                 <div className="container">
@@ -50,7 +49,7 @@ class UserInformation extends Component {
                             <div className="ps-section__left">
                                 <aside className="ps-widget--account-dashboard">
                                     <div className="ps-widget__header">
-                                        <img src="/static/img/users/3.jpg" />
+                                        <img src="/static/img/users/3.jpg" alt=""/>
                                         <figure>
                                             <figcaption>Hello</figcaption>
                                             <p>username@gmail.com</p>
@@ -68,10 +67,7 @@ class UserInformation extends Component {
                                                     }>
                                                     <Link href={link.url}>
                                                         <a>
-                                                            <i
-                                                                className={
-                                                                    link.icon
-                                                                }></i>
+                                                            <i className={link.icon}/>
                                                             {link.text}
                                                         </a>
                                                     </Link>
@@ -80,7 +76,7 @@ class UserInformation extends Component {
                                             <li>
                                                 <Link href="/account/my-account">
                                                     <a>
-                                                        <i className="icon-power-switch"></i>
+                                                        <i className="icon-power-switch"/>
                                                         Logout
                                                     </a>
                                                 </Link>
@@ -94,82 +90,52 @@ class UserInformation extends Component {
                             <div className="ps-page__content">
                                 <Form
                                     className="ps-form--account-setting"
-                                    onSubmit={this.handleLoginSubmit}>
+                                    onFinish={this.handleLoginSubmit}>
                                     <div className="ps-form__header">
                                         <h3>Account Information</h3>
                                     </div>
                                     <div className="ps-form__content">
                                         <div className="form-group">
-                                            <Form.Item label="Name">
-                                                {getFieldDecorator('name', {
-                                                    rules: [
-                                                        {
-                                                            required: true,
-                                                            message:
-                                                                'Please input your name!',
-                                                        },
-                                                    ],
-                                                })(
-                                                    <Input
-                                                        className="form-control"
-                                                        type="text"
-                                                        placeholder="Username or email address"
-                                                    />
-                                                )}
+                                            <Form.Item label="Name" name="name" rules={[{
+                                                required: true,
+                                                message: 'Please input your name!',
+                                            }]}>
+                                                <Input
+                                                    className="form-control"
+                                                    type="text"
+                                                    placeholder="Username or email address"
+                                                />
                                             </Form.Item>
                                         </div>
                                         <div className="row">
                                             <div className="col-sm-6">
                                                 <div className="form-group">
-                                                    <Form.Item label="Phone Number">
-                                                        {getFieldDecorator(
-                                                            'phoneNumber',
-                                                            {
-                                                                rules: [
-                                                                    {
-                                                                        required: true,
-                                                                        message:
-                                                                            'Please input your username!',
-                                                                    },
-                                                                ],
-                                                            }
-                                                        )(
-                                                            <Input
-                                                                className="form-control"
-                                                                type="text"
-                                                                placeholder="Enter your phone number"
-                                                            />
-                                                        )}
+                                                    <Form.Item label="Phone Number" name="phoneNumber" rules={[{
+                                                        required: true,
+                                                        message: 'Please input your username!',
+                                                    }]}>
+                                                        <Input
+                                                            className="form-control"
+                                                            type="text"
+                                                            placeholder="Enter your phone number"
+                                                        />
                                                     </Form.Item>
                                                 </div>
                                             </div>
                                             <div className="col-sm-6">
                                                 <div className="form-group">
-                                                    <Form.Item label="Email">
-                                                        {getFieldDecorator(
-                                                            'email',
-                                                            {
-                                                                rules: [
-                                                                    {
-                                                                        required: true,
-                                                                        message:
-                                                                            'Please input your username!',
-                                                                    },
-                                                                    {
-                                                                        type:
-                                                                            'email',
-                                                                        message:
-                                                                            'The input is not valid E-mail!',
-                                                                    },
-                                                                ],
-                                                            }
-                                                        )(
-                                                            <Input
-                                                                className="form-control"
-                                                                type="text"
-                                                                placeholder="Username or email address"
-                                                            />
-                                                        )}
+                                                    <Form.Item label="Email" name="email" rules={[{
+                                                        required: true,
+                                                        message: 'Please input your username!',
+                                                    }, {
+                                                        type: 'email',
+                                                        message: 'The input is not valid E-mail!',
+                                                    }]}>
+                                                        <Input
+                                                            className="form-control"
+                                                            type="text"
+                                                            placeholder="Username or email address"
+                                                        />
                                                     </Form.Item>
                                                 </div>
                                             </div>
@@ -178,33 +144,23 @@ class UserInformation extends Component {
                                             <div className="col-sm-6">
                                                 <div className="form-group">
                                                     <label>Birthday</label>
-                                                    <DatePicker />
+                                                    <DatePicker/>
                                                 </div>
                                             </div>
                                             <div className="col-sm-6">
                                                 <div className="form-group">
-                                                    <Form.Item label="Gender">
-                                                        {getFieldDecorator(
-                                                            'gender',
-                                                            {
-                                                                rules: [
-                                                                    {
-                                                                        required: true,
-                                                                        message:
-                                                                            'Please input your username!',
-                                                                    },
-                                                                ],
-                                                            }
-                                                        )(
-                                                            <Radio.Group>
-                                                                <Radio value="male">
-                                                                    Male
-                                                                </Radio>
-                                                                <Radio value="female">
-                                                                    Female
-                                                                </Radio>
-                                                            </Radio.Group>
-                                                        )}
+                                                    <Form.Item label="Gender" name="gender" rules={[{
+                                                        required: true,
+                                                        message: 'Please input your username!',
+                                                    }]}>
+                                                        <Radio.Group>
+                                                            <Radio value="male">
+                                                                Male
+                                                            </Radio>
+                                                            <Radio value="female">
+                                                                Female
+                                                            </Radio>
+                                                        </Radio.Group>
                                                     </Form.Item>
                                                 </div>
                                             </div>
@@ -224,5 +180,5 @@ class UserInformation extends Component {
         );
     }
 }
-const WrapFormUserInformation = Form.useForm(UserInformation);
-export default WrapFormUserInformation;
+
+export default UserInformation;

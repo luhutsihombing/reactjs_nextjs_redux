@@ -2,33 +2,32 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { login } from '../../../store/auth/action';
-import { Input, Form } from 'antd';
+import { Form, Input } from 'antd';
 import { connect } from 'react-redux';
+
 class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
 
-    handleSubmit = e => {
+    handleSubmit(e) {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
+        this.props.form.validateFields().then(value => {
+            if (value) {
                 this.props.dispatch(login());
                 Router.push('/account/login');
-            } else {
             }
         });
     };
 
     render() {
-        const { getFieldDecorator } = this.props.form;
         return (
             <div className="ps-my-account">
                 <div className="container">
                     <Form
                         className="ps-form--account"
-                        onSubmit={this.handleSubmit}>
+                        onFinish={this.handleSubmit}>
                         <ul className="ps-tab-list">
                             <li>
                                 <Link href="/account/login">
@@ -45,41 +44,27 @@ class Register extends Component {
                             <div className="ps-form__content">
                                 <h5>Register An Account</h5>
                                 <div className="form-group">
-                                    <Form.Item>
-                                        {getFieldDecorator('email', {
-                                            rules: [
-                                                {
-                                                    required: true,
-                                                    message:
-                                                        'Please input your username!',
-                                                },
-                                            ],
-                                        })(
-                                            <Input
-                                                className="form-control"
-                                                type="email"
-                                                placeholder="Email address"
-                                            />
-                                        )}
+                                    <Form.Item name="email" rules={[{
+                                        required: true,
+                                        message: 'Please input your username!',
+                                    }]}>
+                                        <Input
+                                            className="form-control"
+                                            type="email"
+                                            placeholder="Email address"
+                                        />
                                     </Form.Item>
                                 </div>
                                 <div className="form-group form-forgot">
-                                    <Form.Item>
-                                        {getFieldDecorator('password', {
-                                            rules: [
-                                                {
-                                                    required: true,
-                                                    message:
-                                                        'Please input your password!',
-                                                },
-                                            ],
-                                        })(
-                                            <Input
-                                                className="form-control"
-                                                type="password"
-                                                placeholder="Password..."
-                                            />
-                                        )}
+                                    <Form.Item name="password" rules={[{
+                                        required: true,
+                                        message: 'Please input your password!',
+                                    }]}>
+                                        <Input
+                                            className="form-control"
+                                            type="password"
+                                            placeholder="Password..."
+                                        />
                                     </Form.Item>
                                 </div>
                                 <div className="form-group submit">
@@ -95,22 +80,22 @@ class Register extends Component {
                                 <ul className="ps-list--social">
                                     <li>
                                         <a className="facebook" href="#">
-                                            <i className="fa fa-facebook"></i>
+                                            <i className="fa fa-facebook"/>
                                         </a>
                                     </li>
                                     <li>
                                         <a className="google" href="#">
-                                            <i className="fa fa-google-plus"></i>
+                                            <i className="fa fa-google-plus"/>
                                         </a>
                                     </li>
                                     <li>
                                         <a className="twitter" href="#">
-                                            <i className="fa fa-twitter"></i>
+                                            <i className="fa fa-twitter"/>
                                         </a>
                                     </li>
                                     <li>
                                         <a className="instagram" href="#">
-                                            <i className="fa fa-instagram"></i>
+                                            <i className="fa fa-instagram"/>
                                         </a>
                                     </li>
                                 </ul>
@@ -122,8 +107,8 @@ class Register extends Component {
         );
     }
 }
-const WrapFormRegister = Form.useForm(Register);
+
 const mapStateToProps = state => {
     return state.auth;
 };
-export default connect(mapStateToProps)(WrapFormRegister);
+export default connect(mapStateToProps)(Register);
