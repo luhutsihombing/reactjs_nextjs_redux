@@ -2,17 +2,18 @@
     .menu {
         > li {
             > a {
-                text-transform: uppercase;
-                font-weight: 600;
                 font-size: 16px;
+                font-weight: 600;
                 padding: 15px 16px;
+                text-transform: uppercase;
 
                 &:hover {
-                    color: #ffffff;
+                    color: #fff;
                 }
             }
         }
     }
+
     .ps-form--quick-search {
         .ps-form__categories {
             border: 1px solid #e1e1e1;
@@ -21,8 +22,8 @@
     }
 
     .navigation {
-        border-bottom: 1px solid #e1e1e1;
         background-color: $color-1st;
+        border-bottom: 1px solid #e1e1e1;
 
         > .container {
             display: flex;
@@ -69,22 +70,22 @@
 
             .menu__content {
                 left: auto;
-                right: -10px;
                 padding-top: 0;
+                right: -10px;
 
-                &:before {
-                    content: '';
-                    display: inline-block;
-                    position: absolute;
-                    top: -7px;
-                    right: 30px;
-                    width: 16px;
-                    height: 16px;
-                    border-left: 1px solid #e1e1e1;
-                    border-top: 1px solid #e1e1e1;
-                    background-color: #ffffff;
+                &::before {
                     @include transform(rotate(45deg));
                     @include transform-origin(50% 50%);
+                    background-color: #fff;
+                    border-left: 1px solid #e1e1e1;
+                    border-top: 1px solid #e1e1e1;
+                    content: "";
+                    display: inline-block;
+                    height: 16px;
+                    position: absolute;
+                    right: 30px;
+                    top: -7px;
+                    width: 16px;
                 }
             }
 
@@ -143,9 +144,9 @@
                 }
 
                 .menu__content {
-                    &:before {
-                        right: auto;
+                    &::before {
                         left: 55px;
+                        right: auto;
                     }
                 }
 

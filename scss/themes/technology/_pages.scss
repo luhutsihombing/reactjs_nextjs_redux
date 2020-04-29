@@ -4,18 +4,21 @@
             color: $color-technology;
         }
     }
+
     .ps-btn,
     button.ps-btn {
         background-color: $color-technology;
-        color: #ffffff;
+        color: #fff;
+
         &:hover {
             background-color: darken($color-technology, 5%);
-            color: #ffffff;
+            color: #fff;
         }
     }
 
     .ps-btn {
         color: #fff;
+
         &:hover {
             color: #fff;
         }
@@ -111,21 +114,21 @@
                 font-size: 18px;
 
                 del {
-                    margin-left: 10px;
                     font-size: 14px;
+                    margin-left: 10px;
                 }
 
                 small {
-                    margin-left: 10px;
                     color: red;
+                    margin-left: 10px;
                 }
             }
         }
     }
 
     .ps-home-recent-view {
-        padding: 70px 0;
         background-color: #f4f5f5;
+        padding: 70px 0;
     }
 
     .ps-home-promotions {
@@ -133,14 +136,14 @@
     }
 
     .ps-footer {
-        border-top: 1px solid #e1e1e1;
         background-color: #f8f8f8;
+        border-top: 1px solid #e1e1e1;
 
         .ps-form--newletter {
             .form-group--nest {
                 button {
                     background-color: $color-technology;
-                    color: #ffffff;
+                    color: #fff;
                 }
             }
         }
@@ -154,6 +157,7 @@
                 }
             }
         }
+
         .ps-top-categories {
             .row {
                 .col-xl-2 {

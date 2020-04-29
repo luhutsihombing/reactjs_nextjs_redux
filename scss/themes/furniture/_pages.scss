@@ -2,7 +2,7 @@
     .ps-btn,
     button.ps-btn {
         background-color: $color-furniture;
-        color: #ffffff;
+        color: #fff;
 
         &:hover {
             background-color: darken($color-furniture, 5%);
@@ -29,18 +29,18 @@
     .ps-site-features {
         padding: 50px 0;
 
-        @include media('<sm') {
+        @include media("<sm") {
             padding: 30px 0;
         }
     }
 
     .ps-home-promotions {
-        padding-top: 10px;
         padding-bottom: 60px;
+        padding-top: 10px;
 
         .ps-section__header {
-            text-align: center;
             padding-bottom: 30px;
+            text-align: center;
 
             h3 {
                 font-weight: 400;
@@ -52,7 +52,7 @@
         }
 
         .ps-collection {
-            @include media('<sm') {
+            @include media("<sm") {
                 margin-bottom: 30px;
             }
         }
@@ -63,23 +63,23 @@
             text-align: center;
 
             h3 {
-                font-weight: 400;
                 font-size: 24px;
+                font-weight: 400;
             }
         }
     }
 
     .ps-home-categories {
-        padding-top: 60px;
         padding-bottom: 40px;
+        padding-top: 60px;
 
         .ps-section__header {
-            text-align: center;
             border-bottom: none;
+            text-align: center;
 
             h3 {
-                font-weight: 400;
                 font-size: 24px;
+                font-weight: 400;
                 text-transform: uppercase;
             }
         }
@@ -100,18 +100,18 @@
 
 .ps-section--furniture {
     .ps-section__header {
-        text-align: center;
         padding-bottom: 30px;
+        text-align: center;
 
         h3 {
-            font-weight: 400;
             font-size: 24px;
+            font-weight: 400;
             text-transform: uppercase;
         }
     }
 }
 
 .ps-footer--furniture {
-    border-top: 1px solid #e1e1e1;
     background-color: #f8f8f8;
+    border-top: 1px solid #e1e1e1;
 }

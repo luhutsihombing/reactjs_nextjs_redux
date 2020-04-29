@@ -1,0 +1,27 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-sass-guidelines"],
+  "defaultSeverity": "warning",
+  "rules": {
+    "scss/percent-placeholder-pattern": ".",
+    "scss/dollar-variable-pattern": ".",
+    "scss/at-mixin-pattern": ".",
+    "function-parentheses-space-inside": ["never", "always-single-line"],
+    "indentation": null,
+    "max-nesting-depth": 4,
+    "declaration-empty-line-before": [
+      "never",
+      {
+        "except": ["after-comment"]
+      }
+    ],
+    "at-rule-empty-line-before": null,
+    "string-quotes": "double",
+    "block-closing-brace-newline-after": [
+      "always-multi-line",
+      {
+        "message": "Put closing if else statement as javascript usual",
+        "ignoreAtRules": ["if", "else"]
+      }
+    ]
+  }
+}

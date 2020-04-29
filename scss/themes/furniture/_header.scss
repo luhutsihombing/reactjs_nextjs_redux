@@ -24,7 +24,7 @@
     }
 
     .header__top {
-        background-color: #ffffff;
+        background-color: #fff;
 
         .menu--product-categories {
             display: block;
@@ -40,7 +40,7 @@
                 }
 
                 &:hover {
-                    &:before {
+                    &::before {
                         display: none;
                     }
                 }
@@ -50,8 +50,8 @@
 
     .header__left {
         display: flex;
-        max-width: 270px;
         justify-content: space-between;
+        max-width: 270px;
     }
 
     .ps-form--quick-search {
@@ -59,17 +59,17 @@
 
         button {
             background-color: $color-furniture;
-            color: #ffffff;
+            color: #fff;
         }
 
         .form-group--icon {
             border: 1px solid #e1e1e1;
-            min-width: 80px;
             border-radius: 4px 0 0 4px;
+            min-width: 80px;
 
             select {
-                height: 40px;
                 border: none;
+                height: 40px;
             }
         }
 
@@ -90,9 +90,9 @@
     .menu {
         > li {
             > a {
-                text-transform: uppercase;
                 font-size: 16px;
                 font-weight: 600;
+                text-transform: uppercase;
 
                 &:hover {
                     color: $color-furniture;

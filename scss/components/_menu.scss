@@ -1,70 +1,70 @@
 .sub-toggle {
-    position: relative;
-    display: inline-block;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
     @include transform-style(preserve-3d);
+    cursor: pointer;
+    display: inline-block;
     display: none;
+    height: 36px;
+    position: relative;
+    width: 36px;
 
-    &:before,
-    &:after {
-        content: '';
+    &::before,
+    &::after {
+        background-color: $color-heading;
+        content: "";
+        height: 1px;
+        left: 50%;
         position: absolute;
         top: 50%;
-        left: 50%;
         width: 12px;
-        height: 1px;
-        background-color: $color-heading;
     }
 
-    &:before {
+    &::before {
         @include transform(translateX(-50%));
     }
 
-    &:after {
+    &::after {
         @include transform(translateX(-50%) rotate(90deg));
     }
 
     &.active {
-        &:after {
+        &::after {
             display: none;
         }
     }
 }
 
 .sub-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 240px;
-    z-index: 1000;
-    @include transition(all .25s ease);
+    @include transition(all 0.25s ease);
+    @include hidden;
     background-color: #fff;
     border: 1px solid #ccc;
-    @include hidden;
+    left: 0;
+    min-width: 240px;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
 
-    &:before {
-        content: '';
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
+    &::before {
         @include transform(translateX(-50%));
         @include triangle(12px, #fff, up);
+        bottom: 100%;
+        content: "";
         display: none;
+        left: 50%;
+        position: absolute;
     }
 
     > li {
         display: block;
 
         > a {
-            display: inline-block;
-            padding: 6px 20px;
-            width: 100%;
-            font-size: 14px;
-            color: $color-heading;
-            text-transform: capitalize;
             @include transition(all 0.8s $ease-out-expo);
+            color: $color-heading;
+            display: inline-block;
+            font-size: 14px;
+            padding: 6px 20px;
+            text-transform: capitalize;
+            width: 100%;
 
             &:hover {
                 color: $color-1st;
@@ -87,13 +87,13 @@
             }
 
             > .sub-menu {
-                position: absolute;
-                top: 0;
-                left: 100%;
                 @include hidden;
                 @include transform(translateY(30px));
+                left: 100%;
+                position: absolute;
+                top: 0;
 
-                &:before {
+                &::before {
                     display: none;
                 }
             }
@@ -109,25 +109,25 @@
 }
 
 .mega-menu {
+    @include transition(all 0.4s ease);
+    background-color: #fff;
+    border: 1px solid #ccc;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     padding: 15px 30px 10px;
-    background-color: #fff;
-    @include transition(all 0.4s ease);
-    border: 1px solid #ccc;
 
     > * {
-        width: 100%;
         padding: 10px 15px;
+        width: 100%;
     }
 
     h4 {
-        margin: 0;
-        margin-bottom: 10px;
+        color: $color-heading;
         font-size: 16px;
         font-weight: 600;
-        color: $color-heading;
+        margin: 0;
+        margin-bottom: 10px;
     }
 
     .mega-menu__column {
@@ -139,36 +139,36 @@
 
         li {
             a {
-                display: block;
+                background-color: transparent;
                 color: $color-heading;
+                display: block;
+                font-size: 14px;
                 line-height: 20px;
                 padding: 5px 0;
-                font-size: 14px;
-                background-color: transparent;
 
                 &.has-badge {
                     padding-right: 20px;
 
-                    &:after {
-                        content: 'New';
-                        display: inline-block;
-                        position: absolute;
-                        top: 5px;
-                        right: 0;
-                        font-size: 9px;
-                        color: #ffffff;
-                        padding: 0px 8px;
-                        line-height: 2em;
+                    &::after {
                         @include border-radius(10px);
                         background-color: $color-1st;
+                        color: #fff;
+                        content: "New";
+                        display: inline-block;
+                        font-size: 9px;
+                        line-height: 2em;
+                        padding: 0 8px;
+                        position: absolute;
+                        right: 0;
+                        top: 5px;
                     }
 
                     &.sale {
                         color: $color-danger;
 
-                        &:after {
-                            content: 'Sale';
+                        &::after {
                             background-color: #ffa800;
+                            content: "Sale";
                         }
                     }
                 }
@@ -188,12 +188,12 @@
         display: inline-block;
 
         > a {
+            color: $color-heading;
             display: inline-block;
-            padding: 15px 25px;
             font-size: 16px;
             font-weight: 400;
             line-height: 20px;
-            color: $color-heading;
+            padding: 15px 25px;
 
             &:hover {
                 color: $color-heading;
@@ -214,8 +214,8 @@
         }
 
         .sub-toggle {
-            margin-left: 5px;
             display: none;
+            margin-left: 5px;
         }
 
         .sub-menu {
@@ -224,40 +224,41 @@
         }
 
         .mega-menu {
+            @include hidden;
+            left: 0;
             position: absolute;
             top: 100%;
-            left: 0;
             z-index: 1000;
-            @include hidden;
         }
 
         &.menu-item-has-children {
             position: relative;
 
             > a {
-                &:after {
-                    content: '\e93a';
-                    font: normal normal normal 12px/1 linearicons;
+                &::after {
                     @include vertical-align();
+                    content: "\e93a";
+                    font: normal normal normal 12px/1 linearicons;
                     right: 0;
                 }
 
-                &:before {
-                    content: '';
-                    width: 13px;
-                    height: 13px;
-                    background-color: #fff;
-                    position: absolute;
-                    top: 100%;
-                    left: 50%;
-                    z-index: 10000;
-                    border-left: 1px solid #ccc;
-                    border-top: 1px solid #ccc;
+                &::before {
                     @include transform(rotate(45deg) translate(-50%, -50%));
                     @include transform-origin(0 0);
                     @include hidden;
+                    background-color: #fff;
+                    border-left: 1px solid #ccc;
+                    border-top: 1px solid #ccc;
+                    content: "";
+                    height: 13px;
+                    left: 50%;
+                    position: absolute;
+                    top: 100%;
+                    width: 13px;
+                    z-index: 10000;
                 }
             }
+
             &:hover {
                 > .sub-menu {
                     @include transform(scale3d(1, 1, 1) translateY(0));
@@ -269,9 +270,9 @@
             position: relative;
 
             .mega-menu {
+                left: 0;
                 position: absolute;
                 top: 100%;
-                left: 0;
             }
 
             &:hover {
@@ -284,7 +285,7 @@
 
         &:hover {
             .sub-toggle {
-                color: #ffffff;
+                color: #fff;
             }
 
             > .sub-menu {
@@ -293,7 +294,7 @@
 
             &.menu-item-has-children {
                 > a {
-                    &:before {
+                    &::before {
                         @include show;
                     }
                 }
@@ -303,16 +304,16 @@
 }
 
 .menu--product-categories {
-    position: relative;
     height: 100%;
+    position: relative;
 
     .menu__toggle {
-        position: relative;
-        height: 100%;
-        display: flex;
-        flex-flow: row nowrap;
         align-items: center;
         cursor: pointer;
+        display: flex;
+        flex-flow: row nowrap;
+        height: 100%;
+        position: relative;
 
         i {
             font-size: 20px;
@@ -320,28 +321,28 @@
         }
 
         span {
-            font-size: 20px;
             color: $color-heading;
+            font-size: 20px;
             font-size: 16px;
             font-weight: 600;
         }
 
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background-color: $color-heading;
-            transition: transform 0.75s $timing-1;
+        &::before {
             @include transform(scale3d(0, 1, 1));
             @include transform-origin(100% 50%);
+            background-color: $color-heading;
+            content: "";
+            height: 1px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            transition: transform 0.75s $timing-1;
+            width: 100%;
         }
 
         &:hover,
         &.active {
-            &:before {
+            &::before {
                 @include transform-origin(0 50%);
                 @include transform(scale3d(1, 1, 1));
             }
@@ -349,16 +350,16 @@
     }
 
     .menu__content {
-        position: absolute;
-        top: 100%;
+        @include hidden;
+        @include transform(scale3d(1, 1, 0) translateY(30px));
         left: 0;
-        z-index: 100;
-        z-index: 1000;
         min-width: 100%;
         padding-top: 2px;
-        @include hidden;
+        position: absolute;
+        top: 100%;
         transition: all 0.3s ease;
-        @include transform(scale3d(1, 1, 0) translateY(30px));
+        z-index: 100;
+        z-index: 1000;
     }
 
     .menu--dropdown {
@@ -381,25 +382,25 @@
         transition: all 0.4s ease;
 
         > a {
+            color: $color-heading;
             display: block;
             padding: 10px 0;
-            color: $color-heading;
 
             i {
-                margin-right: 10px;
                 font-size: 18px;
+                margin-right: 10px;
             }
         }
 
         &.has-mega-menu {
             .mega-menu {
-                position: absolute;
-                top: 0;
-                left: 100%;
-                width: auto;
-                min-width: 530px;
                 @include hidden;
                 border-left: none;
+                left: 100%;
+                min-width: 530px;
+                position: absolute;
+                top: 0;
+                width: auto;
             }
         }
 
@@ -417,12 +418,12 @@
 
 .menu--mobile {
     .sub-menu {
-        position: relative;
-        display: none;
         @include transform(translate(0, 0));
         @include show;
         @include transition(all 0s ease);
         border: none;
+        display: none;
+        position: relative;
 
         > li {
             > a {
@@ -433,19 +434,19 @@
     }
 
     .mega-menu {
-        display: none;
         @include flex-flow(row wrap);
+        @include transition(all 0s ease);
+        display: none;
         max-width: 100%;
         padding-left: 15px;
-        @include transition(all 0s ease);
 
         h4 {
-            position: relative;
             display: block;
+            line-height: 20px;
             margin-bottom: 0;
             padding: 10px 0;
+            position: relative;
             width: 100%;
-            line-height: 20px;
         }
 
         .mega-menu__column {
@@ -458,8 +459,8 @@
 
             li {
                 a {
-                    color: $color-text;
                     border: none;
+                    color: $color-text;
 
                     &:hover {
                         color: $color-heading;
@@ -473,16 +474,16 @@
         border-bottom: 1px solid #dedede;
 
         > a {
+            display: block;
+            font-size: 15px;
+            line-height: 20px;
+            padding: 15px 20px;
             position: relative;
             z-index: 10;
-            display: block;
-            padding: 15px 20px;
-            line-height: 20px;
-            font-size: 15px;
 
             &:hover {
-                padding-left: 5px;
                 color: $color-heading;
+                padding-left: 5px;
             }
         }
 
@@ -490,13 +491,13 @@
             position: relative;
 
             .sub-toggle {
-                position: absolute;
-                top: 5px;
-                right: 0;
-                width: 40px;
-                height: 40px;
-                z-index: 20;
                 display: inline-block;
+                height: 40px;
+                position: absolute;
+                right: 0;
+                top: 5px;
+                width: 40px;
+                z-index: 20;
             }
         }
     }
@@ -524,7 +525,6 @@
     }
 }
 
-
 .menu--mobile-2 {
     .ant-menu-submenu {
         > .ant-menu-submenu-title {
@@ -532,9 +532,10 @@
                 color: $color-heading;
                 font-size: 16px;
             }
+
             > span {
-                font-size: 16px;
                 color: $color-heading;
+                font-size: 16px;
             }
         }
 
@@ -542,8 +543,9 @@
             padding-left: 20px;
         }
     }
+
     .ant-menu-item-active {
-        color: $color-1st;
         background-color: transparent;
+        color: $color-1st;
     }
 }

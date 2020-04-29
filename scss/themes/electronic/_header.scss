@@ -3,14 +3,14 @@
 
     .header__extra {
         i {
-            color: #ffffff;
+            color: #fff;
         }
 
         span {
             background-color: $color-electronic;
 
             i {
-                color: #ffffff;
+                color: #fff;
             }
         }
 
@@ -27,11 +27,11 @@
 
     .ps-block--user-header {
         i {
-            color: #ffffff;
+            color: #fff;
         }
 
         a {
-            color: #ffffff;
+            color: #fff;
 
             &:hover {
                 color: $color-electronic;
@@ -46,7 +46,7 @@
 
         button {
             background-color: $color-electronic;
-            color: #ffffff;
+            color: #fff;
         }
     }
 
@@ -55,20 +55,20 @@
 
         .header__left {
             p {
-                color: #ffffff;
+                color: #fff;
             }
         }
 
         .header__top-links {
             > li {
                 > a {
-                    color: #ffffff;
+                    color: #fff;
                 }
             }
 
             .ps-dropdown {
                 > a {
-                    color: #ffffff;
+                    color: #fff;
                 }
             }
         }
@@ -82,7 +82,7 @@
 
             .menu__toggle {
                 i {
-                    color: #ffffff;
+                    color: #fff;
                 }
 
                 span {
@@ -99,15 +99,15 @@
     .menu--electronic {
         > li {
             > a {
-                color: #ffffff;
+                color: #fff;
                 font-size: 16px;
-                text-transform: uppercase;
                 font-weight: 600;
+                text-transform: uppercase;
 
                 i {
-                    vertical-align: middle;
-                    margin-right: 6px;
                     font-size: 20px;
+                    margin-right: 6px;
+                    vertical-align: middle;
                 }
 
                 &:hover {
@@ -124,8 +124,8 @@
             .menu--product-categories {
                 .menu__toggle {
                     span {
+                        color: #fff;
                         display: block;
-                        color: #ffffff;
                     }
                 }
             }
@@ -144,7 +144,7 @@
         .header__actions {
             .ps-cart--mini {
                 > a {
-                    color: #ffffff;
+                    color: #fff;
 
                     span {
                         background-color: $color-electronic;
@@ -155,7 +155,7 @@
             .ps-block--user-header {
                 .ps-block__left {
                     i {
-                        color: #ffffff;
+                        color: #fff;
                     }
                 }
             }

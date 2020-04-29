@@ -1,5 +1,26 @@
 .ps-banner--market-1 {
     position: relative;
+    @include media("<lg") {
+        min-height: 400px;
+
+        img {
+            @include hidden;
+            display: none;
+        }
+
+        .ps-banner__content {
+            padding: 0 30px;
+        }
+    }
+    @include media("<xs") {
+        h3 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
 
     h5 {
         color: red;
@@ -8,21 +29,21 @@
 
     h3 {
         font-size: 36px;
-        line-height: 1.2em;
         font-weight: 400;
+        line-height: 1.2em;
     }
 
     p {
-        margin-bottom: 0;
+        color: #999;
         font-size: 14px;
-        color: #999999;
         line-height: 1.8em;
+        margin-bottom: 0;
 
         strong {
+            color: rgb(102, 153, 0);
             display: block;
             font-size: 24px;
             font-weight: 500;
-            color: rgb(102, 153, 0);
         }
     }
 
@@ -32,17 +53,18 @@
     }
 
     .ps-banner__content {
-        max-width: 1200px;
-        width: 100%;
         @include center();
+        max-width: 1200px;
         padding-left: 220px;
         padding-right: 50px;
+        width: 100%;
     }
 
     @media (max-width: 1680px) {
         h4 {
             margin-bottom: 10px;
         }
+
         h3 {
             font-size: 40px;
             line-height: 1.2em;
@@ -50,33 +72,16 @@
     }
     @media (max-width: 1366px) {
         h4 {
-            margin-bottom: 10px;
             font-size: 16px;
+            margin-bottom: 10px;
         }
+
         h3 {
             font-size: 40px;
 
             br {
                 display: none;
             }
-        }
-    }
-    @include media('<lg') {
-        min-height: 400px;
-        img {
-            display: none;
-            @include hidden;
-        }
-        .ps-banner__content {
-            padding: 0 30px;
-        }
-    }
-    @include media('<xs') {
-        h3 {
-            font-size: 24px;
-        }
-        p {
-            font-size: 12px;
         }
     }
 }

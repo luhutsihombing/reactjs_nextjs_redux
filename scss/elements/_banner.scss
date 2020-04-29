@@ -4,29 +4,34 @@
 
 .ps-banner--1 {
     position: relative;
+
     p {
-        color: #0099cc;
+        color: #09c;
         font-size: 16px;
     }
+
     h4 {
-        margin-bottom: 30px;
+        color: $color-heading;
         font-size: 30px;
         font-weight: 500;
-        color: $color-heading;
         line-height: 1.1em;
+        margin-bottom: 30px;
+
         strong {
             color: rgb(102, 153, 0);
         }
     }
+
     .ps-btn {
-        padding: 11px 24px;
         font-weight: 600;
+        padding: 11px 24px;
     }
+
     .ps-banner__content {
         @include vertical-align();
         left: 0;
-        width: 100%;
         padding: 0 240px;
+        width: 100%;
     }
 
     @media (max-width: 1680px) {
@@ -35,5 +40,3 @@
         }
     }
 }
-
-

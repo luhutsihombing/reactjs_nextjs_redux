@@ -1,11 +1,11 @@
 .widget {
-    position: relative;
-    padding-bottom: 20px;
     margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
 
     .widget-title {
-        margin-bottom: 2.5rem;
         font-weight: 700;
+        margin-bottom: 2.5rem;
     }
 
     &:last-child {
@@ -14,47 +14,47 @@
 }
 
 .widget_sidebar {
+    @extend %list-reset;
+    border-bottom: 1px solid #e5e5e5;
     margin-bottom: 30px;
     padding-bottom: 30px;
-    border-bottom: 1px solid #e5e5e5;
-    @extend %list-reset;
 
     .widget-title {
-        font-family: $font-1st;
+        color: #222;
         display: block;
-        margin-bottom: 2.5rem;
+        font-family: $font-1st;
         font-size: 1.6rem;
         font-weight: 600;
-        color: #222222;
+        margin-bottom: 2.5rem;
         text-transform: uppercase;
     }
 
     ul {
         li {
             a {
+                color: $color-text;
                 display: block;
-                position: relative;
-                padding: 5px 0;
                 font-size: 1.4rem;
                 line-height: 1.8em;
-                color: $color-text;
+                padding: 5px 0;
+                position: relative;
 
-                &:before {
-                    content: '\f105';
-                    font-family: FontAwesome;
+                &::before {
                     @include hidden;
-                    position: absolute;
-                    top: 10px;
+                    @include transition(all 0.4s ease);
+                    content: "\f105";
+                    font-family: FontAwesome;
                     left: 0;
                     line-height: 1em;
-                    @include transition(all 0.4s ease);
+                    position: absolute;
+                    top: 10px;
                 }
 
                 &:hover {
-                    padding-left: 10px;
                     color: $color-heading;
+                    padding-left: 10px;
 
-                    &:before {
+                    &::before {
                         @include show;
                         @include transition-delay(0.2s);
                     }
@@ -65,16 +65,16 @@
 }
 
 .widget_shop {
-    padding: 25px 20px;
-    background-color: #f5f5f5;
     @extend %list-reset;
+    background-color: #f5f5f5;
+    padding: 25px 20px;
 
     .widget-title {
-        margin-bottom: 25px;
-        font-size: 18px;
-        text-transform: uppercase;
-        font-weight: 400;
         color: $color-heading;
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 25px;
+        text-transform: uppercase;
     }
 
     .ps-checkbox {
@@ -85,25 +85,25 @@
             line-height: 16px;
             padding-left: 25px;
 
-            &:before {
-                width: 16px;
-                height: 16px;
+            &::before {
                 border-radius: 2px;
+                height: 16px;
+                width: 16px;
             }
 
-            &:after {
-                top: 3px;
-                left: 7px;
-                width: 4px;
-                height: 8px;
-                border-width: 1px;
+            &::after {
                 border-color: $color-1st;
+                border-width: 1px;
+                height: 8px;
+                left: 7px;
+                top: 3px;
+                width: 4px;
             }
         }
 
         .fa-star {
-            margin-right: 5px;
             color: #ccc;
+            margin-right: 5px;
 
             &.rate {
                 color: #f2b309;
@@ -111,54 +111,54 @@
         }
 
         small {
-            color: #999999;
+            color: #999;
             font-size: 14px;
         }
 
-        input[type='checkbox']:checked ~ label {
-            font-weight: 500;
+        input[type="checkbox"]:checked ~ label {
             color: $color-1st;
+            font-weight: 500;
 
-            &:before {
+            &::before {
+                background-color: #fff;
                 border-color: $color-1st;
-                background-color: #ffffff;
             }
 
-            &:after {
+            &::after {
             }
         }
 
         &.ps-checkbox--color {
             > label {
-                margin: 0;
-                padding: 0;
-                width: 30px;
                 height: 30px;
                 line-height: 30px;
+                margin: 0;
+                padding: 0;
                 vertical-align: top;
+                width: 30px;
 
-                &:before {
-                    width: 30px;
-                    height: 30px;
+                &::before {
                     border-radius: 50%;
+                    height: 30px;
+                    width: 30px;
                 }
             }
         }
     }
 
     .ps-slider {
+        @include border-radius(0);
+        background-color: #cecece;
+        border: none;
         display: block;
+        height: 4px;
         margin-bottom: 10px;
         margin-left: 10px;
-        height: 4px;
-        background-color: #cecece;
         position: relative;
-        @include border-radius(0);
-        border: none;
     }
 
     .ps-filter__btn {
-        background-color: #888888;
+        background-color: #888;
         color: #fff;
 
         &:hover {
@@ -168,18 +168,19 @@
 
     .ant-checkbox-group {
         width: 100%;
+
         .ant-checkbox-group-item {
             display: block;
-            width: 100%;
             margin-bottom: 10px;
+            width: 100%;
         }
     }
 
     figure {
+        border-bottom: 1px solid #ccc;
         margin-top: 15px;
         padding-bottom: 15px;
         padding-top: 15px;
-        border-bottom: 1px solid #ccc;
 
         &:last-child {
             border-bottom: none;
@@ -188,19 +189,19 @@
 
     .sizes {
         a {
+            background-color: #fff;
+            border: 1px solid #ccc;
             display: inline-block;
             margin-bottom: 10px;
             margin-right: 10px;
             padding: 2px 20px;
-            border: 1px solid #ccc;
-            background-color: #ffffff;
 
             &:hover {
                 border-color: $color-1st;
             }
         }
     }
-    
+
     .ant-slider {
         .ant-slider-rail {
             background-color: #e4e4e4;
@@ -209,8 +210,8 @@
 }
 
 .widget_search {
-    margin-bottom: 25px;
     border-bottom: none;
+    margin-bottom: 25px;
 }
 
 .widget_category {
@@ -219,69 +220,69 @@
 
 .widget_size {
     a {
+        background-color: #f6f6f6;
+        color: #555;
         display: inline-block;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        padding: 1rem 2rem;
         font-size: 1.4rem;
         line-height: 20px;
-        color: #555;
-        background-color: #f6f6f6;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        padding: 1rem 2rem;
 
         &:hover {
             background-color: #a7a7a7;
-            color: #ffffff;
+            color: #fff;
         }
     }
 
     .ps-checkbox--size {
         label {
+            background-color: transparent;
             margin-bottom: 10px;
             padding: 0;
-            background-color: transparent;
         }
     }
 }
 
 .widget_filter {
     .ps-slider {
+        @include border-radius(0);
+        background-color: #cecece;
+        border: none;
         display: block;
+        height: 5px;
         margin-bottom: 10px;
         margin-left: 10px;
-        height: 5px;
-        background-color: #cecece;
         position: relative;
-        @include border-radius(0);
-        border: none;
     }
 
     .ui-slider-range {
-        top: 0;
-        left: 0;
-        height: 100%;
-        background-color: $color-1st;
         @include border-radius(0);
+        background-color: $color-1st;
         border: none;
+        height: 100%;
+        left: 0;
+        top: 0;
     }
 
     .ui-slider-handle {
-        display: inline-block;
-        top: 50%;
-        height: 14px;
-        width: 14px;
-        outline: none;
-        cursor: pointer;
-        background-color: $color-1st;
-        border: none;
         @include transform(translateY(-50%));
         @include border-radius(50%);
+        background-color: $color-1st;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        height: 14px;
+        outline: none;
+        top: 50%;
+        width: 14px;
     }
 
     .ps-slider__meta {
-        margin-bottom: 10px;
+        color: $color-text;
         font-size: 13px;
         line-height: 1.8em;
-        color: $color-text;
+        margin-bottom: 10px;
         text-align: center;
 
         span {
@@ -291,7 +292,7 @@
     }
 
     .ps-filter__btn {
-        background-color: #888888;
+        background-color: #888;
         color: #fff;
 
         &:hover {
@@ -302,16 +303,16 @@
 
 .widget_tags {
     a {
-        display: inline-block;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        padding: 5px 15px;
-        font-size: 14px;
-        line-height: 15px;
-        color: #303030;
+        @include border-radius(50px);
         background-color: transparent;
         border: 1px solid $color-heading;
-        @include border-radius(50px);
+        color: #303030;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 15px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        padding: 5px 15px;
 
         &:hover {
             background-color: $color-2nd;
@@ -324,10 +325,10 @@
     @extend %list-reset;
 
     .widget-title {
-        font-size: 16px;
-        margin-bottom: 30px;
         color: $color-heading;
+        font-size: 16px;
         font-weight: 600;
+        margin-bottom: 30px;
     }
 }
 
@@ -344,32 +345,32 @@
 }
 
 .widget_features {
-    margin-bottom: 30px;
     background-color: #f1f1f1;
+    margin-bottom: 30px;
     padding: 20px;
 
     p {
-        position: relative;
-        margin-bottom: 20px;
-        padding-left: 50px;
         color: $color-heading;
         line-height: 1.4em;
+        margin-bottom: 20px;
+        padding-left: 50px;
+        position: relative;
 
         i {
-            position: absolute;
-            top: 0;
+            color: $color-heading;
+            font-size: 26px;
             left: 0;
             margin-right: 10px;
-            font-size: 26px;
-            color: $color-heading;
+            position: absolute;
+            top: 0;
         }
     }
 }
 
 .widget_sell-on-site {
     p {
-        margin-bottom: 0;
         color: $color-heading;
+        margin-bottom: 0;
         vertical-align: middle;
 
         i {
@@ -386,13 +387,13 @@
     border: 1px solid #e1e1e1;
 
     h3 {
-        padding: 14px 20px;
         background-color: #f4f4f4;
+        color: #000;
         font-size: 20px;
         font-weight: 600;
         margin-bottom: 40px;
         margin-top: 0;
-        color: #000;
+        padding: 14px 20px;
     }
 
     .widget__content {
@@ -400,8 +401,8 @@
     }
 
     .ps-product {
-        margin-bottom: 30px;
         border: 1px solid #eaeaea;
+        margin-bottom: 30px;
         transition: all 0.4s ease;
 
         .ps-product__content {
@@ -412,8 +413,8 @@
             border-bottom: 1px solid silver;
 
             .ps-product__content {
-                display: block;
                 @include show;
+                display: block;
                 height: auto;
 
                 &.hover {
@@ -425,15 +426,15 @@
 }
 
 .widget_best-sale {
-    padding: 15px 10px;
     border: 1px solid #d9d9d9;
     border-bottom: 5px solid red;
+    padding: 15px 10px;
 
     .widget-title {
-        font-weight: 600;
+        border-bottom: 1px solid #d9d9d9;
         color: $color-heading;
         font-size: 20px;
-        border-bottom: 1px solid #d9d9d9;
+        font-weight: 600;
         padding-bottom: 15px;
     }
 
@@ -462,11 +463,11 @@
     @extend %list-reset;
 
     .widget__title {
-        margin-bottom: 35px;
-        margin-top: 0;
+        color: #000;
         font-size: 20px;
         font-weight: 600;
-        color: #000;
+        margin-bottom: 35px;
+        margin-top: 0;
     }
 
     &.widget--search {
@@ -481,10 +482,10 @@
         ul {
             li {
                 a {
+                    color: #000;
                     display: block;
-                    padding: 6px 0;
                     line-height: 20px;
-                    color: #000000;
+                    padding: 6px 0;
 
                     &:hover {
                         color: $color-1st;
@@ -497,11 +498,11 @@
     &.widget--recent-post {
         .widget__content {
             a {
-                display: block;
-                margin-bottom: 10px;
                 color: $color-heading;
-                font-weight: 600;
+                display: block;
                 font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 10px;
 
                 &:hover {
                     color: $color-1st;
@@ -524,14 +525,14 @@
 
     &.widget--tags {
         a {
-            display: inline-block;
-            margin-right: 5px;
-            margin-bottom: 5px;
-            vertical-align: top;
             color: #999;
+            display: inline-block;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            vertical-align: top;
 
-            &:after {
-                content: ',';
+            &::after {
+                content: ",";
             }
 
             &:hover {
@@ -545,16 +546,16 @@
 }
 
 .widget--vendor {
-    padding-bottom: 40px;
-    margin-bottom: 40px;
-    border-bottom: 1px solid #d8d8d8;
     @extend %list-reset;
+    border-bottom: 1px solid #d8d8d8;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
 
     .widget-title {
-        margin-bottom: 35px;
-        font-size: 20px;
         color: $color-heading;
+        font-size: 20px;
         font-weight: 600;
+        margin-bottom: 35px;
     }
 
     .form-control {
@@ -570,10 +571,10 @@
         }
 
         .select2-selection__rendered {
-            font-size: 16px;
             color: $color-text;
-            padding-top: 15px;
+            font-size: 16px;
             padding-bottom: 15px;
+            padding-top: 15px;
         }
     }
 
@@ -581,8 +582,8 @@
         a {
             color: $color-heading;
 
-            &:before {
-                content: '\f105';
+            &::before {
+                content: "\f105";
                 font-size: 20px;
             }
         }
@@ -595,9 +596,9 @@
             margin-bottom: 25px;
 
             strong {
+                color: $color-heading;
                 display: block;
                 font-weight: 600;
-                color: $color-heading;
             }
 
             span {
@@ -613,16 +614,16 @@
 
 .ps-widget--account-dashboard {
     .ps-widget__header {
+        align-items: flex-start;
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
-        align-items: flex-start;
         padding-bottom: 20px;
 
         img {
+            border-radius: 50%;
             flex-basis: 60px;
             max-width: 60px;
-            border-radius: 50%;
         }
 
         figure {
@@ -630,15 +631,15 @@
             padding-left: 10px;
 
             figcaption {
-                font-size: 16px;
                 color: $color-text;
+                font-size: 16px;
             }
 
             p {
-                margin-bottom: 0;
+                color: $color-heading;
                 font-size: 16px;
                 font-weight: 600;
-                color: $color-heading;
+                margin-bottom: 0;
             }
         }
     }
@@ -651,17 +652,20 @@
 
             li {
                 border-bottom: 1px solid #d1d1d1;
+
                 a {
+                    color: $color-heading;
                     display: block;
-                    padding: 15px 20px;
-                    line-height: 20px;
                     font-size: 16px;
                     font-weight: 500;
-                    color: $color-heading;
+                    line-height: 20px;
+                    padding: 15px 20px;
                     text-transform: capitalize;
+
                     i {
                         margin-right: 10px;
                     }
+
                     &:hover {
                         background-color: $color-1st;
                         color: #fff;
@@ -674,6 +678,7 @@
 
                 &.active {
                     background-color: $color-1st;
+
                     a {
                         color: #fff;
                     }

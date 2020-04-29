@@ -24,18 +24,18 @@
     }
 
     .navigation__recent-products {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        max-width: 1170px;
-        width: 100%;
-        padding: 20px 50px;
+        @include hidden;
         background-color: #fff;
         border: 1px solid #e1e1e1;
         border-top: 0;
-        z-index: 100;
+        left: 0;
+        max-width: 1170px;
+        padding: 20px 50px;
+        position: absolute;
+        top: 100%;
         transition: all 0.4s ease;
-        @include hidden;
+        width: 100%;
+        z-index: 100;
 
         p {
             margin-bottom: 0;
@@ -43,8 +43,8 @@
 
             a {
                 color: $color-heading;
-                text-decoration: underline;
                 font-size: 14px;
+                text-decoration: underline;
             }
         }
 
@@ -67,9 +67,9 @@
                 }
 
                 .menu__content {
-                    &:before {
-                        right: auto;
+                    &::before {
                         left: 55px;
+                        right: auto;
                     }
                 }
 

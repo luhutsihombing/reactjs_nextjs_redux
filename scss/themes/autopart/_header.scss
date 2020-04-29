@@ -1,27 +1,32 @@
 .menu--autopart {
     > li {
         > a {
-            text-transform: uppercase;
             font-weight: 600;
+            text-transform: uppercase;
         }
     }
 }
 
 .header--autopart {
+
+    @include media("<lg") {
+        display: none;
+    }
+
     .ps-form--quick-search {
         button {
             background-color: $color-autopart;
-            color: #ffffff;
+            color: #fff;
 
             &:hover {
                 cursor: pointer;
             }
         }
+
         .ps-form__categories {
             border: 1px solid #e1e1e1;
             border-right: none;
         }
-
     }
 
     .menu--product-categories {
@@ -33,22 +38,22 @@
 
         .menu__content {
             left: auto;
-            right: -10px;
             padding-top: 0;
+            right: -10px;
 
-            &:before {
-                content: '';
-                display: inline-block;
-                position: absolute;
-                top: -7px;
-                right: 30px;
-                width: 16px;
-                height: 16px;
-                border-left: 1px solid #e1e1e1;
-                border-top: 1px solid #e1e1e1;
-                background-color: #ffffff;
+            &::before {
                 @include transform(rotate(45deg));
                 @include transform-origin(50% 50%);
+                background-color: #fff;
+                border-left: 1px solid #e1e1e1;
+                border-top: 1px solid #e1e1e1;
+                content: "";
+                display: inline-block;
+                height: 16px;
+                position: absolute;
+                right: 30px;
+                top: -7px;
+                width: 16px;
             }
         }
 
@@ -76,7 +81,7 @@
             background-color: $color-autopart;
 
             i {
-                color: #ffffff;
+                color: #fff;
             }
         }
 
@@ -94,9 +99,9 @@
     .menu {
         > li {
             > a {
-                padding: 15px 20px;
-                font-weight: 600;
                 color: $color-heading;
+                font-weight: 600;
+                padding: 15px 20px;
                 text-transform: uppercase;
 
                 &:hover {
@@ -126,9 +131,9 @@
             }
 
             .menu__content {
-                &:before {
-                    right: auto;
+                &::before {
                     left: 55px;
+                    right: auto;
                 }
             }
 
@@ -144,18 +149,14 @@
         }
 
         .header__content {
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
-            background-color: #ffffff;
         }
-    }
-
-    @include media('<lg') {
-        display: none;
     }
 }
 
@@ -173,7 +174,7 @@
 
         &.header--sticky {
             .navigation--mobile {
-                background-color: #ffffff;
+                background-color: #fff;
             }
         }
     }

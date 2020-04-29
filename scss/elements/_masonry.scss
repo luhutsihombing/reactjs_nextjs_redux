@@ -33,7 +33,7 @@
 
 // Data Setting
 @include gridOptions(
-    '.masonry-wrapper',
+    ".masonry-wrapper",
     (
         bgColorItem: #9ec3c3,
         optionsData: true,
@@ -43,7 +43,7 @@
 
 // Private Setting
 @include gridOptions(
-    '.setting',
+    ".setting",
     (
         ratioItem: 60%,
         bgColorItem: #ccc,

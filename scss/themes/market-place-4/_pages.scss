@@ -1,7 +1,7 @@
 #homepage-6 {
     .ps-site-features {
         padding: 50px 0;
-        @include media('<sm') {
+        @include media("<sm") {
             padding: 30px 0;
         }
     }
@@ -18,12 +18,12 @@
     }
 
     .ps-deal-hot {
-        padding-top: 50px;
         padding-bottom: 30px;
+        padding-top: 50px;
     }
 
     .ps-promotions {
-        @include media('<sm') {
+        @include media("<sm") {
             .ps-collection {
                 margin-bottom: 30px;
             }

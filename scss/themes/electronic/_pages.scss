@@ -2,7 +2,8 @@
     .ps-btn,
     button.ps-btn {
         background-color: $color-electronic;
-        color: #ffffff;
+        color: #fff;
+
         &:hover {
             background-color: darken($color-electronic, 5%);
         }
@@ -18,12 +19,35 @@
     }
 
     .ps-home-banner {
-        padding-top: 30px;
         padding-bottom: 40px;
+        padding-top: 30px;
 
         .container {
             display: flex;
             flex-flow: row nowrap;
+
+            @include media("<lg") {
+                flex-flow: column wrap;
+
+                .ps-section__left {
+                    margin-bottom: 30px;
+                    max-width: 100%;
+                    padding-right: 0;
+                }
+
+                .ps-section__right {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    max-width: 100%;
+                    width: 100%;
+
+                    .ps-collection {
+                        margin: 0 10px;
+                        max-width: 50%;
+                        width: 100%;
+                    }
+                }
+            }
 
             > * {
                 width: 100%;
@@ -45,29 +69,6 @@
                     }
                 }
             }
-
-            @include media('<lg') {
-                flex-flow: column wrap;
-
-                .ps-section__left {
-                    max-width: 100%;
-                    margin-bottom: 30px;
-                    padding-right: 0;
-                }
-
-                .ps-section__right {
-                    width: 100%;
-                    max-width: 100%;
-                    display: flex;
-                    flex-flow: row nowrap;
-
-                    .ps-collection {
-                        width: 100%;
-                        max-width: 50%;
-                        margin: 0 10px;
-                    }
-                }
-            }
         }
     }
 
@@ -81,7 +82,7 @@
         padding: 40px 0;
 
         .ps-collection {
-            @include media('<sm') {
+            @include media("<sm") {
                 margin-bottom: 30px;
             }
         }
@@ -98,26 +99,26 @@
                 font-size: 18px;
 
                 del {
-                    margin-left: 10px;
                     font-size: 14px;
+                    margin-left: 10px;
                 }
 
                 small {
-                    margin-left: 10px;
                     color: red;
+                    margin-left: 10px;
                 }
             }
         }
     }
 
     .ps-home-blog {
-        padding-top: 50px;
-        padding-bottom: 70px;
         background-color: #f5f5f5;
+        padding-bottom: 70px;
+        padding-top: 50px;
 
         .ps-block--recent-viewed {
-            padding-top: 70px;
             border-top: 1px solid #e3e3e3;
+            padding-top: 70px;
         }
     }
 }

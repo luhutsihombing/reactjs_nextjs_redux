@@ -12,13 +12,11 @@
         font-family: $font-family;
         font-style: $style;
         font-weight: $weight;
-
-        src: font-source-declaration(
-            $font-family,
+        src:
+ font-source-declaration($font-family,
             $file-path,
             $asset-pipeline,
             $file-formats,
-            $font-url-prefix
-        );
+            $font-url-prefix);
     }
 }

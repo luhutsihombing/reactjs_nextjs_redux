@@ -37,7 +37,6 @@
         bottom: nth($coordinates, 3),
         left: nth($coordinates, 4),
     );
-
     position: $position;
 
     @each $offset, $value in $offsets {

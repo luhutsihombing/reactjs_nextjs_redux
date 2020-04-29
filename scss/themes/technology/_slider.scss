@@ -1,12 +1,33 @@
 .ps-banner--technology {
     position: relative;
+    @include media("<lg") {
+        min-height: 400px;
+
+        img {
+            @include hidden;
+            display: none;
+        }
+
+        .ps-banner__content {
+            padding: 0 30px;
+        }
+    }
+    @include media("<xs") {
+        h3 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
 
     h4 {
-        margin-bottom: 20px;
-        font-size: 16px;
-        line-height: 20px;
-        font-weight: 400;
         color: rgb(0, 152, 206);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        margin-bottom: 20px;
     }
 
     h3 {
@@ -15,8 +36,8 @@
         line-height: 1.2em;
 
         strong {
-            font-weight: 600;
             color: rgb(102, 153, 0);
+            font-weight: 600;
         }
     }
 
@@ -26,16 +47,17 @@
     }
 
     .ps-banner__content {
-        max-width: 1200px;
-        width: 100%;
         @include center();
+        max-width: 1200px;
         padding-left: 240px;
+        width: 100%;
     }
 
     @media (max-width: 1680px) {
         h4 {
             margin-bottom: 10px;
         }
+
         h3 {
             font-size: 40px;
             line-height: 1.2em;
@@ -43,33 +65,16 @@
     }
     @media (max-width: 1366px) {
         h4 {
-            margin-bottom: 10px;
             font-size: 16px;
+            margin-bottom: 10px;
         }
+
         h3 {
             font-size: 40px;
 
             br {
                 display: none;
             }
-        }
-    }
-    @include media('<lg') {
-        min-height: 400px;
-        img {
-            display: none;
-            @include hidden;
-        }
-        .ps-banner__content {
-            padding: 0 30px;
-        }
-    }
-    @include media('<xs') {
-        h3 {
-            font-size: 24px;
-        }
-        p {
-            font-size: 12px;
         }
     }
 }

@@ -1,19 +1,54 @@
 #homepage-1 {
     .ps-home-banner {
-        padding-top: 30px;
         margin-bottom: 30px;
+        padding-top: 30px;
 
         .ps-container {
             display: flex;
             flex-flow: row nowrap;
+
+            @include media("<lg") {
+                display: block;
+
+                .ps-section__left {
+                    margin-bottom: 10px;
+                    max-width: 100%;
+                    padding-right: 0;
+                }
+
+                .ps-section__right {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    margin: 0;
+                    max-width: 100%;
+
+                    .ps-collection {
+                        max-width: 50%;
+                        padding: 0 5px;
+                        width: 100%;
+
+                        img {
+                            width: 100%;
+                        }
+
+                        &:first-child {
+                            padding-left: 0;
+                        }
+
+                        &:last-child {
+                            padding-right: 0;
+                        }
+                    }
+                }
+            }
 
             > * {
                 width: 100%;
             }
 
             .ps-section__left {
-                padding-right: 30px;
                 max-width: calc(100% - 390px);
+                padding-right: 30px;
             }
 
             .ps-section__right {
@@ -25,37 +60,6 @@
 
                     &:last-child {
                         margin-bottom: 0;
-                    }
-                }
-            }
-
-            @include media('<lg') {
-                display: block;
-                .ps-section__left {
-                    max-width: 100%;
-                    margin-bottom: 10px;
-                    padding-right: 0;
-                }
-
-                .ps-section__right {
-                    display: flex;
-                    flex-flow: row nowrap;
-                    margin: 0;
-                    max-width: 100%;
-                    .ps-collection {
-                        width: 100%;
-                        max-width: 50%;
-                        padding: 0 5px;
-
-                        img {
-                            width: 100%;
-                        }
-                        &:first-child {
-                            padding-left: 0;
-                        }
-                        &:last-child {
-                            padding-right: 0;
-                        }
                     }
                 }
             }
@@ -71,6 +75,7 @@
 
     .ps-deal-of-day {
         padding-bottom: 80px;
+
         .slick-slide {
             > div {
                 margin: 0 8px;
@@ -84,13 +89,13 @@
                 font-weight: 600;
 
                 del {
-                    margin-left: 10px;
                     font-size: 14px;
+                    margin-left: 10px;
                 }
 
                 small {
-                    margin-left: 10px;
                     color: red;
+                    margin-left: 10px;
                 }
             }
         }
@@ -98,6 +103,22 @@
 
     .ps-top-categories {
         padding: 80px 0 50px;
+
+        @include media("<lg") {
+            padding: 60px 0;
+        }
+
+        @include media("<md") {
+            padding: 50px 0;
+        }
+
+        @include media("<sm") {
+            padding: 40px 0;
+        }
+
+        @include media("<xs") {
+            padding: 35px 0;
+        }
 
         h3 {
             text-transform: capitalize;
@@ -110,41 +131,25 @@
                 }
             }
         }
-
-        @include media('<lg') {
-            padding: 60px 0;
-        }
-
-        @include media('<md') {
-            padding: 50px 0;
-        }
-
-        @include media('<sm') {
-            padding: 40px 0;
-        }
-
-        @include media('<xs') {
-            padding: 35px 0;
-        }
     }
 
     .ps-product-list {
         padding-bottom: 80px;
-        @include media('<md') {
+        @include media("<md") {
             padding-bottom: 50px;
         }
-        @include media('<sm') {
+        @include media("<sm") {
             padding-bottom: 40px;
         }
-        @include media('<xs') {
-            padding-bottom: 0px;
+        @include media("<xs") {
+            padding-bottom: 0;
         }
     }
 
     .ps-download-app {
-        margin-top: 80px;
         margin-bottom: 100px;
-        @include media('<sm') {
+        margin-top: 80px;
+        @include media("<sm") {
             margin-bottom: 50px;
         }
     }

@@ -171,4 +171,5 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-/.eslintcache
+.eslintcache
+.stylelintcache

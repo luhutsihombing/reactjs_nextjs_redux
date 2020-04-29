@@ -65,22 +65,23 @@
 // 2012 - display (flex | inline-flex)
 @mixin display($value) {
     // flex | inline-flex
-    @if $value == 'flex' {
+    @if $value == "flex" {
         // 2009
+
         display: -webkit-box;
         display: -moz-box;
         display: box;
 
         // 2012
+
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flexbox; // 2011 (IE 10)
         display: flex;
-    } @else if $value == 'inline-flex' {
+    } @else if $value == "inline-flex" {
         display: -webkit-inline-box;
         display: -moz-inline-box;
         display: inline-box;
-
         display: -webkit-inline-flex;
         display: -moz-inline-flex;
         display: -ms-inline-flexbox;
@@ -116,12 +117,12 @@
 
     @if $value == row {
         $value-2009: horizontal;
-    } @else if $value == 'row-reverse' {
+    } @else if $value == "row-reverse" {
         $value-2009: horizontal;
         $direction: reverse;
     } @else if $value == column {
         $value-2009: vertical;
-    } @else if $value == 'column-reverse' {
+    } @else if $value == "column-reverse" {
         $value-2009: vertical;
         $direction: reverse;
     }
@@ -134,6 +135,7 @@
     @include prefixer(flex-direction, $value, webkit moz spec);
 
     // 2011 (IE 10)
+
     -ms-flex-direction: $value;
 }
 
@@ -147,7 +149,7 @@
         $alt-value: single;
     } @else if $value == wrap {
         $alt-value: multiple;
-    } @else if $value == 'wrap-reverse' {
+    } @else if $value == "wrap-reverse" {
         $alt-value: multiple;
     }
 
@@ -173,6 +175,7 @@
     @include prefixer(order, $int, webkit moz spec);
 
     // 2011 (IE 10)
+
     -ms-flex-order: $int;
 }
 
@@ -200,13 +203,13 @@
 @mixin justify-content($value: flex-start) {
     // Alt values.
     $alt-value: $value;
-    @if $value == 'flex-start' {
+    @if $value == "flex-start" {
         $alt-value: start;
-    } @else if $value == 'flex-end' {
+    } @else if $value == "flex-end" {
         $alt-value: end;
-    } @else if $value == 'space-between' {
+    } @else if $value == "space-between" {
         $alt-value: justify;
-    } @else if $value == 'space-around' {
+    } @else if $value == "space-around" {
         $alt-value: distribute;
     }
 
@@ -217,6 +220,7 @@
     @include prefixer(justify-content, $value, webkit moz ms o spec);
 
     // 2011 (IE 10)
+
     -ms-flex-pack: $alt-value;
 }
 
@@ -226,9 +230,9 @@
 @mixin align-items($value: stretch) {
     $alt-value: $value;
 
-    @if $value == 'flex-start' {
+    @if $value == "flex-start" {
         $alt-value: start;
-    } @else if $value == 'flex-end' {
+    } @else if $value == "flex-end" {
         $alt-value: end;
     }
 
@@ -239,6 +243,7 @@
     @include prefixer(align-items, $value, webkit moz ms o spec);
 
     // 2011 (IE 10)
+
     -ms-flex-align: $alt-value;
 }
 
@@ -246,9 +251,9 @@
 // 2012 - align-self (auto | flex-start | flex-end | center | baseline | stretch)
 @mixin align-self($value: auto) {
     $value-2011: $value;
-    @if $value == 'flex-start' {
+    @if $value == "flex-start" {
         $value-2011: start;
-    } @else if $value == 'flex-end' {
+    } @else if $value == "flex-end" {
         $value-2011: end;
     }
 
@@ -256,6 +261,7 @@
     @include prefixer(align-self, $value, webkit moz spec);
 
     // 2011 (IE 10)
+
     -ms-flex-item-align: $value-2011;
 }
 
@@ -263,13 +269,13 @@
 // 2012 - align-content (flex-start | flex-end | center | space-between | space-around | stretch)
 @mixin align-content($value: stretch) {
     $value-2011: $value;
-    @if $value == 'flex-start' {
+    @if $value == "flex-start" {
         $value-2011: start;
-    } @else if $value == 'flex-end' {
+    } @else if $value == "flex-end" {
         $value-2011: end;
-    } @else if $value == 'space-between' {
+    } @else if $value == "space-between" {
         $value-2011: justify;
-    } @else if $value == 'space-around' {
+    } @else if $value == "space-around" {
         $value-2011: distribute;
     }
 
@@ -277,5 +283,6 @@
     @include prefixer(align-content, $value, webkit moz spec);
 
     // 2011 (IE 10)
+
     -ms-flex-line-pack: $value-2011;
 }

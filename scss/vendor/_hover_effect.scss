@@ -110,10 +110,10 @@
 //|
 /////////////////////////////////////////////////////////////////////////////////////|
 // Class
-$front: '.effect-front';
-$back: '.effect-back';
+$front: ".effect-front";
+$back: ".effect-back";
 // Data
-$dataEffect: 'data-effect-name';
+$dataEffect: "data-effect-name";
 // Map deep get
 @function map-deep-get($map, $keys...) {
     @each $key in $keys {
@@ -133,15 +133,13 @@ $dataEffect: 'data-effect-name';
             $map: map-merge($map, $current);
         } @else {
             @each $key, $value in $current {
-                @if type-of($value) == 'map' and type-of(map-get($map, $key)) == 'map' {
+                @if type-of($value) == "map" and type-of(map-get($map, $key)) == "map" {
                     $value: extend(map-get($map, $key), $value, true);
                 }
-                $map: map-merge(
-                    $map,
+                $map: map-merge($map,
                     (
                         $key: $value,
-                    )
-                );
+                    ));
             }
         }
     }
@@ -150,111 +148,109 @@ $dataEffect: 'data-effect-name';
 
 // Start effectSettings
 @mixin effectSettings($mainClass, $options) {
-    $default: extend(
-        (
-            'effectName': '',
-            'front': (
-                'duration': 400,
-                'delay': 0,
-                'easing': cubic-bezier(0.5, 0.72, 0.24, 0.94),
-                'opacity': 1,
-                'translate': (
+    $default: extend((
+            "effectName": "",
+            "front": (
+                "duration": 400,
+                "delay": 0,
+                "easing": cubic-bezier(0.5, 0.72, 0.24, 0.94),
+                "opacity": 1,
+                "translate": (
                     0,
                     0,
                 ),
-                'skew': 0,
-                'scale': 1,
-                'rotate': 0,
-                'rotateX': 0,
-                'rotateY': 0,
-                'perspective': 0,
-                'origin': center center,
+                "skew": 0,
+                "scale": 1,
+                "rotate": 0,
+                "rotateX": 0,
+                "rotateY": 0,
+                "perspective": 0,
+                "origin": center center,
             ),
-            'back': (
-                'duration': 400,
-                'delay': 0,
-                'easing': cubic-bezier(0.5, 0.72, 0.24, 0.94),
-                'backgroundColor': none,
-                'opacity': 1,
-                'translate': (
+            "back": (
+                "duration": 400,
+                "delay": 0,
+                "easing": cubic-bezier(0.5, 0.72, 0.24, 0.94),
+                "backgroundColor": none,
+                "opacity": 1,
+                "translate": (
                     0,
                     0,
                 ),
-                'skew': 0,
-                'scale': 1,
-                'rotate': 0,
-                'rotateX': 0,
-                'rotateY': 0,
-                'perspective': 0,
-                'origin': center center,
+                "skew": 0,
+                "scale": 1,
+                "rotate": 0,
+                "rotateX": 0,
+                "rotateY": 0,
+                "perspective": 0,
+                "origin": center center,
             ),
-            'dataDefault': false,
-            'effectType': false,
+            "dataDefault": false,
+            "effectType": false,
         ),
         $options,
-        true
-    );
+        true);
     // Variable map get
-    $effectName: map-get($default, 'effectName');
-    $dataDefault: map-get($default, 'dataDefault');
-    $effectType: map-get($default, 'effectType');
+    $effectName: map-get($default, "effectName");
+    $dataDefault: map-get($default, "dataDefault");
+    $effectType: map-get($default, "effectType");
     // Variable map deep get
-    $frontduration: map-deep-get($default, 'front', 'duration');
-    $fronteasing: map-deep-get($default, 'front', 'easing');
-    $frontdelay: map-deep-get($default, 'front', 'delay');
-    $frontopacity: map-deep-get($default, 'front', 'opacity');
-    $fronttranslate: map-deep-get($default, 'front', 'translate');
-    $frontskew: map-deep-get($default, 'front', 'skew');
-    $frontscale: map-deep-get($default, 'front', 'scale');
-    $frontrotate: map-deep-get($default, 'front', 'rotate');
-    $frontrotateX: map-deep-get($default, 'front', 'rotateX');
-    $frontrotateY: map-deep-get($default, 'front', 'rotateY');
-    $frontperspective: map-deep-get($default, 'front', 'perspective');
-    $frontorigin: map-deep-get($default, 'front', 'origin');
-    $frontbackgroundColor: map-deep-get($default, 'front', 'backgroundColor');
-    $backduration: map-deep-get($default, 'back', 'duration');
-    $backeasing: map-deep-get($default, 'back', 'easing');
-    $backdelay: map-deep-get($default, 'back', 'delay');
-    $backopacity: map-deep-get($default, 'back', 'opacity');
-    $backtranslate: map-deep-get($default, 'back', 'translate');
-    $backskew: map-deep-get($default, 'back', 'skew');
-    $backscale: map-deep-get($default, 'back', 'scale');
-    $backrotate: map-deep-get($default, 'back', 'rotate');
-    $backrotateX: map-deep-get($default, 'back', 'rotateX');
-    $backrotateY: map-deep-get($default, 'back', 'rotateY');
-    $backperspective: map-deep-get($default, 'back', 'perspective');
-    $backorigin: map-deep-get($default, 'back', 'origin');
-    $backbackgroundColor: map-deep-get($default, 'back', 'backgroundColor');
+    $frontduration: map-deep-get($default, "front", "duration");
+    $fronteasing: map-deep-get($default, "front", "easing");
+    $frontdelay: map-deep-get($default, "front", "delay");
+    $frontopacity: map-deep-get($default, "front", "opacity");
+    $fronttranslate: map-deep-get($default, "front", "translate");
+    $frontskew: map-deep-get($default, "front", "skew");
+    $frontscale: map-deep-get($default, "front", "scale");
+    $frontrotate: map-deep-get($default, "front", "rotate");
+    $frontrotateX: map-deep-get($default, "front", "rotateX");
+    $frontrotateY: map-deep-get($default, "front", "rotateY");
+    $frontperspective: map-deep-get($default, "front", "perspective");
+    $frontorigin: map-deep-get($default, "front", "origin");
+    $frontbackgroundColor: map-deep-get($default, "front", "backgroundColor");
+    $backduration: map-deep-get($default, "back", "duration");
+    $backeasing: map-deep-get($default, "back", "easing");
+    $backdelay: map-deep-get($default, "back", "delay");
+    $backopacity: map-deep-get($default, "back", "opacity");
+    $backtranslate: map-deep-get($default, "back", "translate");
+    $backskew: map-deep-get($default, "back", "skew");
+    $backscale: map-deep-get($default, "back", "scale");
+    $backrotate: map-deep-get($default, "back", "rotate");
+    $backrotateX: map-deep-get($default, "back", "rotateX");
+    $backrotateY: map-deep-get($default, "back", "rotateY");
+    $backperspective: map-deep-get($default, "back", "perspective");
+    $backorigin: map-deep-get($default, "back", "origin");
+    $backbackgroundColor: map-deep-get($default, "back", "backgroundColor");
     // Style
     #{$mainClass} {
-        @extend %styleBasic;
         // Variable easing
         $easeCubic: (
-            'easeInCubic': cubic-bezier(0.55, 0.055, 0.675, 0.19),
-            'easeOutCubic': cubic-bezier(0.215, 0.61, 0.355, 1),
-            'easeInOutCubic': cubic-bezier(0.645, 0.045, 0.355, 1),
-            'easeInCirc': cubic-bezier(0.6, 0.04, 0.98, 0.335),
-            'easeOutCirc': cubic-bezier(0.075, 0.82, 0.165, 1),
-            'easeInOutCirc': cubic-bezier(0.785, 0.135, 0.15, 0.86),
-            'easeInExpo': cubic-bezier(0.95, 0.05, 0.795, 0.035),
-            'easeOutExpo': cubic-bezier(0.19, 1, 0.22, 1),
-            'easeInOutExpo': cubic-bezier(1, 0, 0, 1),
-            'easeInQuad': cubic-bezier(0.55, 0.085, 0.68, 0.53),
-            'easeOutQuad': cubic-bezier(0.165, 0.84, 0.44, 1),
-            'easeInOutQuad': cubic-bezier(0.77, 0, 0.175, 1),
-            'easeInQuart': cubic-bezier(0.755, 0.05, 0.855, 0.06),
-            'easeOutQuart': cubic-bezier(0.165, 0.84, 0.44, 1),
-            'easeInOutQuart': cubic-bezier(0.77, 0, 0.175, 1),
-            'easeInQuint': cubic-bezier(0.755, 0.05, 0.855, 0.06),
-            'easeOutQuint': cubic-bezier(0.23, 1, 0.32, 1),
-            'easeInOutQuint': cubic-bezier(0.86, 0, 0.07, 1),
-            'easeInSine': cubic-bezier(0.47, 0, 0.745, 0.715),
-            'easeOutSine': cubic-bezier(0.39, 0.575, 0.565, 1),
-            'easeInOutSine': cubic-bezier(0.445, 0.05, 0.55, 0.95),
-            'easeInBack': cubic-bezier(0.6, -0.28, 0.735, 0.045),
-            'easeOutBack': cubic-bezier(0.175, 0.885, 0.32, 1.275),
-            'easeInOutBack': cubic-bezier(0.68, -0.55, 0.265, 1.55),
+            "easeInCubic": cubic-bezier(0.55, 0.055, 0.675, 0.19),
+            "easeOutCubic": cubic-bezier(0.215, 0.61, 0.355, 1),
+            "easeInOutCubic": cubic-bezier(0.645, 0.045, 0.355, 1),
+            "easeInCirc": cubic-bezier(0.6, 0.04, 0.98, 0.335),
+            "easeOutCirc": cubic-bezier(0.075, 0.82, 0.165, 1),
+            "easeInOutCirc": cubic-bezier(0.785, 0.135, 0.15, 0.86),
+            "easeInExpo": cubic-bezier(0.95, 0.05, 0.795, 0.035),
+            "easeOutExpo": cubic-bezier(0.19, 1, 0.22, 1),
+            "easeInOutExpo": cubic-bezier(1, 0, 0, 1),
+            "easeInQuad": cubic-bezier(0.55, 0.085, 0.68, 0.53),
+            "easeOutQuad": cubic-bezier(0.165, 0.84, 0.44, 1),
+            "easeInOutQuad": cubic-bezier(0.77, 0, 0.175, 1),
+            "easeInQuart": cubic-bezier(0.755, 0.05, 0.855, 0.06),
+            "easeOutQuart": cubic-bezier(0.165, 0.84, 0.44, 1),
+            "easeInOutQuart": cubic-bezier(0.77, 0, 0.175, 1),
+            "easeInQuint": cubic-bezier(0.755, 0.05, 0.855, 0.06),
+            "easeOutQuint": cubic-bezier(0.23, 1, 0.32, 1),
+            "easeInOutQuint": cubic-bezier(0.86, 0, 0.07, 1),
+            "easeInSine": cubic-bezier(0.47, 0, 0.745, 0.715),
+            "easeOutSine": cubic-bezier(0.39, 0.575, 0.565, 1),
+            "easeInOutSine": cubic-bezier(0.445, 0.05, 0.55, 0.95),
+            "easeInBack": cubic-bezier(0.6, -0.28, 0.735, 0.045),
+            "easeOutBack": cubic-bezier(0.175, 0.885, 0.32, 1.275),
+            "easeInOutBack": cubic-bezier(0.68, -0.55, 0.265, 1.55),
         );
+        @extend %styleBasic;
         // Mixin Effect type
         @mixin effectType {
             #{$front},
@@ -262,7 +258,7 @@ $dataEffect: 'data-effect-name';
                 @extend %transitionDefault;
             }
             @each $eff in $effectsDefault {
-                @if ($effectType== '#{$eff}') {
+                @if ($effectType== "#{$eff}") {
                     @extend %#{$eff};
                 }
             }
@@ -288,25 +284,27 @@ $dataEffect: 'data-effect-name';
                 transition: all $frontduration * 1ms $fronteasing $frontdelay * 1ms;
             }
             #{$back} {
-                visibility: hidden;
-                opacity: $backopacity;
                 background-color: $backbackgroundColor;
+                opacity: $backopacity;
+                transform-origin: $backorigin;
+                transition: all $backduration * 1ms $backeasing $backdelay * 1ms;
+                visibility: hidden;
                 @if ($backrotateX==0) and ($backrotateY==0) {
-                    transform: perspective($backperspective)
+                    transform:
+ perspective($backperspective)
                         translate($backtranslate)
                         scale($backscale)
                         rotate($backrotate)
                         skew($backskew);
                 } @else {
-                    transform: perspective($backperspective)
+                    transform:
+ perspective($backperspective)
                         translate($backtranslate)
                         scale($backscale)
                         rotateX($backrotateX)
                         rotateY($backrotateY)
                         skew($backskew);
                 }
-                transform-origin: $backorigin;
-                transition: all $backduration * 1ms $backeasing $backdelay * 1ms;
                 // Easing custom cubic-bezier
                 @each $easingName, $cubic in $easeCubic {
                     @if ($backeasing==$easingName) {
@@ -314,17 +312,20 @@ $dataEffect: 'data-effect-name';
                     }
                 }
             }
+
             &:hover {
                 #{$front} {
                     opacity: $frontopacity;
                     @if ($frontrotateX==0) and ($frontrotateY==0) {
-                        transform: perspective($frontperspective)
+                        transform:
+ perspective($frontperspective)
                             translate($fronttranslate)
                             scale($frontscale)
                             rotate($frontrotate)
                             skew($frontskew);
                     } @else {
-                        transform: perspective($frontperspective)
+                        transform:
+ perspective($frontperspective)
                             translate($fronttranslate)
                             scale($frontscale)
                             rotateX($frontrotateX)
@@ -339,10 +340,11 @@ $dataEffect: 'data-effect-name';
                     }
                 }
                 #{$back} {
-                    visibility: visible;
                     opacity: 1;
-                    transform: perspective($backperspective) translate(0, 0) scale(1) rotate(0)
+                    transform:
+ perspective($backperspective) translate(0, 0) scale(1) rotate(0)
                         skew(0);
+                    visibility: visible;
                 }
             }
         }
@@ -358,7 +360,7 @@ $dataEffect: 'data-effect-name';
             }
         }
         @if ($effectType==false) {
-            @if not($effectName== '') {
+            @if not($effectName== "") {
                 &[#{$dataEffect}='#{$effectName}'] {
                     @include effectCustom;
                 }
@@ -369,11 +371,11 @@ $dataEffect: 'data-effect-name';
 // Mixin Children full
 @mixin childFull($class, $zIndex) {
     #{$class} {
+        height: 100%;
+        left: 0;
         position: absolute;
         top: 0;
-        left: 0;
         width: 100%;
-        height: 100%;
         z-index: $zIndex;
         @content;
     }
@@ -381,14 +383,14 @@ $dataEffect: 'data-effect-name';
 
 // Css Style basic
 %styleBasic {
-    position: relative;
+    @include childFull($back, 99);
     display: inline-block;
     overflow: hidden;
+    position: relative;
     z-index: 9;
     #{$front} {
         position: relative;
     }
-    @include childFull($back, 99);
 }
 
 %transitionDefault {
@@ -397,20 +399,21 @@ $dataEffect: 'data-effect-name';
 
 // EFFECT DEFAULT
 $effectsDefault: (
-    'classic',
-    'fade',
-    'fadeUp',
-    'fadeRight',
-    'fadeDown',
-    'fadeLeft',
-    'flipX',
-    'flipY'
+    "classic",
+    "fade",
+    "fadeUp",
+    "fadeRight",
+    "fadeDown",
+    "fadeLeft",
+    "flipX",
+    "flipY"
 );
 // Classic
 %classic {
     #{$back} {
         display: none;
     }
+
     &:hover {
         #{$back} {
             display: block;
@@ -424,6 +427,7 @@ $effectsDefault: (
         opacity: 0;
         visibility: hidden;
     }
+
     &:hover {
         #{$back} {
             opacity: 1;
@@ -438,6 +442,7 @@ $effectsDefault: (
     #{$back} {
         transform: translateY(-100%);
     }
+
     &:hover {
         #{$back} {
             transform: translateY(0);
@@ -451,6 +456,7 @@ $effectsDefault: (
     #{$back} {
         transform: translateY(100%);
     }
+
     &:hover {
         #{$back} {
             transform: translateY(0);
@@ -464,6 +470,7 @@ $effectsDefault: (
     #{$back} {
         transform: translateX(-100%);
     }
+
     &:hover {
         #{$back} {
             transform: translateX(0);
@@ -477,6 +484,7 @@ $effectsDefault: (
     #{$back} {
         transform: translateX(100%);
     }
+
     &:hover {
         #{$back} {
             transform: translateX(0);
@@ -497,13 +505,14 @@ $effectsDefault: (
     #{$back} {
         transform: perspective(300em) rotateX(-180deg);
     }
+
     &:hover {
         #{$front} {
             transform: perspective(300em) rotateX(180deg);
         }
         #{$back} {
-            z-index: 9;
             transform: perspective(300em) rotateX(0);
+            z-index: 9;
         }
     }
 }
@@ -521,13 +530,14 @@ $effectsDefault: (
     #{$back} {
         transform: perspective(300em) rotateY(180deg);
     }
+
     &:hover {
         #{$front} {
             transform: perspective(300em) rotateY(-180deg);
         }
         #{$back} {
-            z-index: 9;
             transform: perspective(300em) rotateY(0);
+            z-index: 9;
         }
     }
 }

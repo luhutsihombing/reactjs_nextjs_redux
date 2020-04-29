@@ -6,6 +6,12 @@
     $original-prefix-for-opera: $prefix-for-opera;
     $original-prefix-for-spec: $prefix-for-spec;
 
+    $prefix-for-webkit: $original-prefix-for-webkit !global;
+    $prefix-for-mozilla: $original-prefix-for-mozilla !global;
+    $prefix-for-microsoft: $original-prefix-for-microsoft !global;
+    $prefix-for-opera: $original-prefix-for-opera !global;
+    $prefix-for-spec: $original-prefix-for-spec !global;
+
     @if $original-prefix-for-webkit {
         @include disable-prefix-for-all();
         $prefix-for-webkit: true !global;
@@ -21,12 +27,6 @@
             @content;
         }
     }
-
-    $prefix-for-webkit: $original-prefix-for-webkit !global;
-    $prefix-for-mozilla: $original-prefix-for-mozilla !global;
-    $prefix-for-microsoft: $original-prefix-for-microsoft !global;
-    $prefix-for-opera: $original-prefix-for-opera !global;
-    $prefix-for-spec: $original-prefix-for-spec !global;
 
     @if $original-prefix-for-spec {
         @keyframes #{$name} {

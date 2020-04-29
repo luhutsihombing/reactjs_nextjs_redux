@@ -6,8 +6,7 @@
     height: 0;
     width: 0;
 
-    @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left)
-    {
+    @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
         $width: $width / 2;
         $height: if(length($size) > 1, $height, $height/2);
 

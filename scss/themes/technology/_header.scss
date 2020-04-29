@@ -2,11 +2,11 @@
     .menu--technology {
         > li {
             > a {
-                color: #ffffff;
+                color: #fff;
                 font-size: 16px;
-                text-transform: uppercase;
                 font-weight: 600;
                 padding: 19px 25px;
+                text-transform: uppercase;
 
                 i {
                     margin-right: 5px;
@@ -20,7 +20,7 @@
             background-color: $color-technology;
 
             i {
-                color: #ffffff;
+                color: #fff;
             }
         }
 
@@ -38,7 +38,7 @@
                     background-color: $color-technology;
 
                     a {
-                        color: #ffffff;
+                        color: #fff;
                         cursor: pointer;
                     }
                 }
@@ -55,17 +55,17 @@
 
         button {
             background-color: $color-technology;
-            color: #ffffff;
+            color: #fff;
         }
 
         .form-group--icon {
             border: 1px solid #e1e1e1;
-            min-width: 80px;
             border-radius: 4px 0 0 4px;
+            min-width: 80px;
 
             select {
-                height: 40px;
                 border: none;
+                height: 40px;
             }
         }
 
@@ -117,7 +117,7 @@
 
         &.header--sticky {
             .navigation--mobile {
-                background-color: #ffffff;
+                background-color: #fff;
             }
         }
     }

@@ -8,12 +8,12 @@
     thead {
         > tr {
             > th {
+                border-bottom: 1px solid #e5e5e5;
+                color: #515356;
                 font-family: $font-1st;
                 font-size: 18px;
                 font-weight: 700;
-                color: #515356;
                 text-transform: uppercase;
-                border-bottom: 1px solid #e5e5e5;
             }
         }
     }
@@ -21,10 +21,10 @@
     tbody {
         > tr {
             > td {
-                vertical-align: middle;
-                padding: 20px 30px;
                 border: 1px solid #ddd;
                 color: $color-text;
+                padding: 20px 30px;
+                vertical-align: middle;
             }
         }
     }
@@ -36,8 +36,8 @@
             td {
                 &:first-child {
                     background-color: #f4f4f4;
-                    font-weight: 500;
                     color: $color-heading;
+                    font-weight: 500;
                     width: 150px;
                 }
             }
@@ -60,8 +60,8 @@
             &.question {
                 color: $color-heading;
                 font-size: 16px;
-                width: 300px;
                 font-weight: 500;
+                width: 300px;
             }
 
             &.heading {
@@ -74,11 +74,24 @@
 .ps-table--compare {
     table-layout: fixed;
 
+    @include media("<lg") {
+        table-layout: initial;
+
+        tbody {
+            tr {
+                td {
+                    min-width: 300px;
+                }
+            }
+        }
+    }
+
     tbody {
         tr {
             td {
-                padding: 20px 30px;
                 max-width: 100px;
+                padding: 20px 30px;
+
                 .price {
                     &.sale {
                         color: $color-danger;
@@ -90,8 +103,8 @@
                 }
 
                 .ps-btn {
-                    width: 100%;
                     text-align: center;
+                    width: 100%;
                 }
 
                 .in-stock {
@@ -104,8 +117,8 @@
                 }
 
                 .sold-by {
+                    color: #06c;
                     text-decoration: underline;
-                    color: #0066cc;
 
                     &:hover {
                         color: $color-1st;
@@ -113,22 +126,11 @@
                 }
 
                 &.heading {
-                    color: #000000;
+                    background-color: #f4f4f4;
+                    color: #000;
                     font-weight: 600;
                     text-align: center;
                     text-transform: uppercase;
-                    background-color: #f4f4f4;
-                }
-            }
-        }
-    }
-
-    @include media('<lg') {
-        table-layout: initial;
-        tbody {
-            tr {
-                td {
-                    min-width: 300px;
                 }
             }
         }
@@ -136,37 +138,8 @@
 }
 
 .ps-table--whishlist {
-    thead {
-        tr {
-            th {
-                background-color: #f2f2f2;
-                text-transform: uppercase;
-                color: $color-heading;
-                text-align: center;
-                font-weight: 600;
 
-                &:nth-child(2) {
-                    text-align: left;
-                }
-            }
-        }
-    }
-
-    tbody {
-        tr {
-            td {
-                padding: 30px 10px;
-                vertical-align: middle;
-                font-size: 16px;
-
-                &:last-child {
-                    text-align: right;
-                }
-            }
-        }
-    }
-
-    @include media('<md') {
+    @include media("<md") {
         tbody {
             tr {
                 td {
@@ -185,19 +158,64 @@
             }
         }
     }
-}
 
-.ps-table--shopping-cart {
     thead {
         tr {
             th {
-                padding: 15px 20px;
-                text-transform: uppercase;
+                background-color: #f2f2f2;
                 color: $color-heading;
-                text-align: center;
                 font-weight: 600;
+                text-align: center;
+                text-transform: uppercase;
+
+                &:nth-child(2) {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                font-size: 16px;
+                padding: 30px 10px;
+                vertical-align: middle;
+
+                &:last-child {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+.ps-table--shopping-cart {
+
+    @include media("<md") {
+        tbody {
+            tr {
+                td {
+                    min-width: 200px;
+
+                    &:first-child {
+                        min-width: 400px;
+                    }
+                }
+            }
+        }
+    }
+
+    thead {
+        tr {
+            th {
                 background-color: #f2f2f2;
                 border: none;
+                color: $color-heading;
+                font-weight: 600;
+                padding: 15px 20px;
+                text-align: center;
+                text-transform: uppercase;
 
                 &:first-child {
                     text-align: left;
@@ -209,13 +227,13 @@
     tbody {
         tr {
             td {
+                font-size: 16px;
                 padding: 20px 10px;
                 vertical-align: middle;
-                font-size: 16px;
 
                 .form-group--number {
-                    max-width: 100px;
                     display: inline-block;
+                    max-width: 100px;
 
                     input {
                         border-radius: 0;
@@ -236,31 +254,32 @@
             }
         }
     }
+}
 
-    @include media('<md') {
+.ps-table--product-groupped {
+
+    @include media("<sm") {
+        .title {
+            font-size: 14px;
+        }
+
         tbody {
             tr {
                 td {
                     min-width: 200px;
-
-                    &:first-child {
-                        min-width: 400px;
-                    }
                 }
             }
         }
     }
-}
 
-.ps-table--product-groupped {
     .ps-tag--out-stock {
         color: red;
         font-weight: 500;
     }
 
     .ps-btn {
-        padding: 15px 20px;
         border-radius: 0;
+        padding: 15px 20px;
     }
 
     .title {
@@ -270,24 +289,13 @@
     tbody {
         tr {
             vertical-align: middle;
+
             td {
                 border: none;
                 vertical-align: middle;
+
                 &:first-child {
                     width: 150px;
-                }
-            }
-        }
-    }
-
-    @include media('<sm') {
-        .title {
-            font-size: 14px;
-        }
-        tbody {
-            tr {
-                td {
-                    min-width: 200px;
                 }
             }
         }
@@ -306,11 +314,11 @@
     thead {
         tr {
             th {
-                padding: 10px 16px;
+                background-color: #f4f4f4;
+                color: $color-heading;
                 font-size: 14px;
                 font-weight: 600;
-                color: $color-heading;
-                background-color: #f4f4f4;
+                padding: 10px 16px;
             }
         }
     }
@@ -318,19 +326,21 @@
     tbody {
         tr {
             td {
-                padding: 8px 16px;
                 color: $color-heading;
+                padding: 8px 16px;
+
                 a {
                     color: $color-heading;
-                    color: #0066cc;
+                    color: #06c;
 
                     &:hover {
                         color: $color-1st;
                     }
                 }
+
                 strong {
-                    text-transform: uppercase;
                     color: $color-heading;
+                    text-transform: uppercase;
                 }
             }
         }
@@ -342,11 +352,13 @@
         tr {
             td {
                 color: $color-heading;
+
                 strong {
                     color: $color-heading;
-                    text-transform: uppercase;
                     font-weight: 600;
+                    text-transform: uppercase;
                 }
+
                 &:first-child {
                     background-color: #f4f4f4;
                 }

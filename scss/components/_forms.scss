@@ -1,8 +1,15 @@
 .ps-form--newsletter {
+
+    @include media("<lg") {
+        p {
+            margin-bottom: 10px;
+        }
+    }
+
     h3 {
+        font-size: 24px;
         font-weight: 600;
         margin-bottom: 5px;
-        font-size: 24px;
     }
 
     p {
@@ -15,12 +22,6 @@
             padding-right: 45px;
         }
     }
-
-    @include media('<lg') {
-        p {
-            margin-bottom: 10px;
-        }
-    }
 }
 
 .ps-form--quick-search {
@@ -29,48 +30,51 @@
     position: relative;
 
     .ps-form__categories {
-        position: relative;
         background-color: #fff;
         max-width: 180px;
+        position: relative;
         vertical-align: top;
-        &:after {
-            content: '\e93a';
+
+        &::after {
             @include vertical-align();
-            right: 8px;
-            font-family: 'Linearicons';
+            content: "\e93a";
+            font-family: "Linearicons";
             font-size: 12px;
+            right: 8px;
         }
+
         select.form-control {
-            padding-right: 30px;
-            height: 40px;
-            border-radius: 4px 0 0 4px;
             @include appearance(none);
+            border-radius: 4px 0 0 4px;
+            height: 40px;
+            padding-right: 30px;
         }
     }
 
     .ant-select {
         .ant-select-selection {
-            height: 42px;
-            border-radius: 0;
             border: none;
+            border-radius: 0;
+            height: 42px;
+
             .ant-select-selection__rendered {
                 border: none;
-                line-height: 42px;
                 border-radius: 0;
+                line-height: 42px;
             }
         }
     }
 
     .form-control {
         background-color: #fff;
-        color: $color-heading;
-        height: 42px;
         border: none;
         border-radius: 0;
+        color: $color-heading;
+        height: 42px;
     }
 
     .form-group--icon {
-        background-color: #ffffff;
+        background-color: #fff;
         border-radius: 4px 0 0 4px;
 
         i {
@@ -79,13 +83,13 @@
     }
 
     select.form-control {
-        border-right: 1px solid #ccc;
-        border-radius: 4px 0 0 4px;
-        padding: 0 10px;
-        text-indent: 10px;
-        position: relative;
-        z-index: 2;
         background-color: transparent;
+        border-radius: 4px 0 0 4px;
+        border-right: 1px solid #ccc;
+        padding: 0 10px;
+        position: relative;
+        text-indent: 10px;
+        z-index: 2;
         @include placeholder() {
             color: rgba(102, 102, 102, 1);
         }
@@ -93,30 +97,32 @@
 
     button {
         background-color: $color-heading;
-        color: #ffffff;
         border: none;
+        border-radius: 0 4px 4px 0;
+        color: #fff;
         font-weight: 700;
         padding: 0 24px;
-        border-radius: 0 4px 4px 0;
     }
 
     .ps-panel--search-result {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        z-index: 999;
+        @include transform(scale3d(1, 1, 0));
         background-color: #fff;
         border: 1px solid #eaeaea;
-        padding: 10px 20px;
-        @include transform(scale3d(1, 1, 0));
-        transition: all 0.4s ease;
+        left: 0;
         opacity: 0;
+        padding: 10px 20px;
+        position: absolute;
+        top: 100%;
+        transition: all 0.4s ease;
         visibility: hidden;
+        width: 100%;
+        z-index: 999;
+
         .ps-panel__content {
             max-height: 400px;
             overflow-y: auto;
         }
+
         &.active {
             @include transform(scale3d(1, 1, 1));
             opacity: 1;
@@ -131,47 +137,47 @@
 }
 
 .ps-form--widget-search {
-    position: relative;
     margin-bottom: 20px;
+    position: relative;
 
     input {
-        height: 34px;
-        background-color: #ffffff;
+        background-color: #fff;
         border-radius: 0;
+        height: 34px;
     }
 
     button {
-        border: none;
-        background-color: transparent;
         @include vertical-align();
+        background-color: transparent;
+        border: none;
         right: 10px;
     }
 }
 
 .ps-form--review {
     h4 {
-        margin-bottom: 20px;
         display: block;
         font-size: 16px;
         font-weight: 600;
         line-height: 1.2em;
+        margin-bottom: 20px;
         text-transform: uppercase;
     }
 
     p {
         sup {
-            margin-left: 5px;
             color: $color-danger;
+            margin-left: 5px;
         }
     }
 
     .form-group__rating {
-        display: flex;
         align-items: center;
+        display: flex;
 
         label {
-            margin-bottom: 0;
             line-height: 20px;
+            margin-bottom: 0;
             margin-right: 15px;
         }
     }
@@ -188,25 +194,25 @@
 
 .ps-form--post-comment {
     h3 {
-        margin-bottom: 40px;
-        font-weight: 600;
-        font-size: 24px;
         color: $color-heading;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 40px;
     }
 
     .submit {
         text-align: center;
 
         .ps-btn {
-            padding: 0 30px;
             height: 50px;
+            padding: 0 30px;
         }
     }
 }
 
 .ps-form--contact-us {
     .form-control {
-        background-color: #ffffff;
+        background-color: #fff;
     }
 
     .submit {
@@ -220,22 +226,22 @@
 }
 
 .ps-form--account {
-    max-width: 430px;
-    margin: 0 auto !important;
-    padding-top: 130px;
     @extend %list-reset;
+    margin: 0 auto !important;
+    max-width: 430px;
+    padding-top: 130px;
 
     .ps-tab-list {
-        text-align: center;
         margin-bottom: 30px;
+        text-align: center;
 
         li {
             display: inline-block;
             padding: 0 15px;
 
             a {
-                font-size: 30px;
                 color: $color-text;
+                font-size: 30px;
                 font-weight: 600;
             }
 
@@ -256,8 +262,8 @@
 
         > a {
             @include vertical-align();
-            right: 10px;
             color: #06c;
+            right: 10px;
 
             &:hover {
                 color: $color-1st;
@@ -278,10 +284,10 @@
         margin: 0 -5px;
 
         li {
-            padding: 0 5px;
-            width: 100%;
-            text-align: center;
             margin-right: 0;
+            padding: 0 5px;
+            text-align: center;
+            width: 100%;
 
             a {
                 display: block;
@@ -289,7 +295,7 @@
                 padding: 15px 0;
 
                 i {
-                    color: #ffffff;
+                    color: #fff;
                     text-align: center;
                 }
 
@@ -316,32 +322,41 @@
         padding: 30px 30px 0;
 
         h5 {
-            margin: 0 0 25px;
             font-size: 16px;
             font-weight: 400;
+            margin: 0 0 25px;
         }
     }
 
     .ps-form__footer {
-        padding: 30px 30px;
+        padding: 30px;
     }
 
     .ps-tab {
-        background-color: #ffffff;
+        background-color: #fff;
     }
 }
 
 .ps-form--order-tracking {
-    max-width: 630px;
     margin: 0 auto 50px;
+    max-width: 630px;
+
+    @include media("<md") {
+        .form-group {
+            > label {
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+    }
 
     .form-group {
         margin-bottom: 30px;
 
         > label {
+            color: $color-heading;
             font-size: 18px;
             font-weight: 600;
-            color: $color-heading;
         }
 
         input {
@@ -351,33 +366,24 @@
             }
         }
     }
-
-    @include media('<md') {
-        .form-group {
-            > label {
-                font-size: 16px;
-                font-weight: 500;
-            }
-        }
-    }
 }
 
 .ps-form--search-mobile {
     input {
-        height: 40px;
-        background-color: #ffffff;
+        background-color: #fff;
         border: none;
         border-radius: 0;
+        height: 40px;
     }
 
     button {
-        width: 40px;
-        height: 40px;
         background-color: #000;
         border: none;
+        height: 40px;
+        width: 40px;
 
         i {
-            color: #ffffff;
+            color: #fff;
         }
     }
 }
@@ -386,9 +392,9 @@
     padding: 60px 50px;
 
     h4 {
-        margin-bottom: 10px;
         font-size: 24px;
         font-weight: 400;
+        margin-bottom: 10px;
 
         strong {
             color: $color-1st;
@@ -400,22 +406,22 @@
     }
 
     input {
-        margin-bottom: 20px;
-        height: 40px;
         border: 2px solid #c9c9c9;
+        height: 40px;
+        margin-bottom: 20px;
     }
 
     button {
         height: 40px;
-        width: auto;
         padding: 0 30px;
+        width: auto;
     }
 
     .ps-checkbox {
         > label {
             color: $color-heading;
 
-            &:before {
+            &::before {
                 border-radius: 3px;
             }
         }
@@ -435,12 +441,12 @@
         border: none;
         margin-bottom: 10px;
 
-        &:after {
-            content: '\e789';
-            font-family: 'Linearicons';
+        &::after {
             @include vertical-align();
-            right: 10px;
+            content: "\e789";
+            font-family: "Linearicons";
             font-size: 16px;
+            right: 10px;
         }
 
         input {
@@ -448,33 +454,32 @@
         }
 
         .input-group-text {
-            padding: 0 20px;
-            font-size: 14px;
-            min-width: 60px;
-            text-align: center;
-            font-weight: 500;
-            color: $color-heading;
             -webkit-border-radius: 0;
             -moz-border-radius: 0;
             border-radius: 0;
+            color: $color-heading;
+            font-size: 14px;
+            font-weight: 500;
+            min-width: 60px;
+            padding: 0 20px;
+            text-align: center;
         }
     }
 
     button {
-        background-color: #88aa00;
+        background-color: #8a0;
         border-radius: 0;
+        color: #fff;
         height: 40px;
         padding: 0 30px;
 
-        color: #ffffff;
-
         i {
-            vertical-align: middle;
             margin-right: 4px;
+            vertical-align: middle;
         }
 
         &:hover {
-            background-color: lighten(#88aa00, 5%);
+            background-color: lighten(#8a0, 5%);
         }
     }
 }
@@ -483,29 +488,29 @@
     .select2 {
         position: relative;
 
-        &:before {
-            content: '';
+        &::before {
             @include vertical-align();
+            background-color: #dfdfdf;
+            content: "";
+            height: 50px;
             left: 0;
             width: 1px;
-            height: 50px;
-            background-color: #dfdfdf;
             z-index: 20;
         }
 
         .select2-selection {
-            position: relative;
-            height: 60px;
-            display: flex;
             align-items: center;
             border: none;
-            min-width: 190px;
             border-radius: 0 6px 6px 0;
+            display: flex;
+            height: 60px;
+            min-width: 190px;
+            position: relative;
 
             .select2-selection__rendered {
-                width: 100%;
-                font-weight: 600;
                 color: $color-heading;
+                font-weight: 600;
+                width: 100%;
             }
         }
     }
@@ -515,12 +520,12 @@
         width: 100%;
 
         i {
-            right: auto;
-            left: 20px;
-            font-size: 18px;
             color: $color-heading;
+            font-size: 18px;
+            left: 20px;
+            right: auto;
 
-            &:before {
+            &::before {
                 font-size: inherit;
             }
         }
@@ -528,23 +533,23 @@
         input {
             background-color: #fff;
             border: none;
-            height: 60px;
-            text-indent: 30px;
-            padding-left: 20px;
+            border-radius: 6px 0 0 6px;
             font-size: 16px;
             font-weight: 600;
-            border-radius: 6px 0 0 6px;
+            height: 60px;
+            padding-left: 20px;
+            text-indent: 30px;
             @include placeholder() {
-                font-weight: 400;
                 font-size: 14px;
+                font-weight: 400;
             }
         }
     }
 
     .ps-form__content {
+        align-items: center;
         display: flex;
         justify-content: space-between;
-        align-items: center;
         padding-bottom: 30px;
     }
 
@@ -582,54 +587,60 @@
 
 .ps-form--edit-address {
     .ps-form__header {
+        border-bottom: 1px solid #d1d1d1;
         margin-bottom: 30px;
         padding-bottom: 10px;
-        border-bottom: 1px solid #d1d1d1;
     }
 }
 
 .ps-form--account-setting {
     .ant-calendar-picker {
         min-width: 100%;
+
         input {
-            height: 50px;
             border-radius: 0;
+            height: 50px;
         }
     }
+
     .form-control {
         &.ant-input {
-            border-color: #d1d1d1;
             background-color: #fafafa;
+            border-color: #d1d1d1;
+
             &:focus {
                 border-color: $color-1st;
             }
         }
     }
+
     .ps-form__header {
+        border-bottom: 1px solid #eaeaea;
         margin-bottom: 30px;
         padding-bottom: 10px;
-        border-bottom: 1px solid #eaeaea;
+
         h3 {
-            margin-bottom: 0;
             font-size: 20px;
             font-weight: 600;
+            margin-bottom: 0;
         }
     }
+
     .ps-form__content {
-        padding: 30px;
+        background-color: #fff;
         border-radius: 4px;
         box-shadow: 0 1px 1px rgba(#ccc, 0.5);
-        background-color: #fff;
+        padding: 30px;
     }
 }
 
 .ps-form--checkout {
     .ps-form__submit {
         @media (min-width: 768px) {
+            align-items: center;
             display: flex;
             flex-flow: row nowrap;
             justify-content: space-between;
-            align-items: center;
         }
     }
 }

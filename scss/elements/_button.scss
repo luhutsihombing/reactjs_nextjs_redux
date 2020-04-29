@@ -1,45 +1,50 @@
 button {
-    cursor: pointer;
     @include transition(all 0.4s ease);
+    cursor: pointer;
 }
 
 .menu-toggle,
 .ps-btn--hamburger {
-    position: relative;
+    @include border-radius(50%);
     display: inline-block;
-    //display: none;
-    width: 40px;
     height: 40px;
     overflow: hidden;
-    @include border-radius(50%);
+    position: relative;
+    //display: none;
+
+    width: 40px;
+
+    @include media("<lg") {
+        display: inline-block;
+    }
 
     span,
-    &:before,
-    &:after {
+    &::before,
+    &::after {
+        @include transition(all 0.4s ease);
+        background-color: #303030;
+        height: 2px;
         position: absolute;
         right: 10px;
-        height: 2px;
         width: 20px;
-        background-color: #303030;
         z-index: 100;
-        @include transition(all 0.4s ease);
     }
 
     span {
-        top: 50%;
         @include transform(translateY(-50%));
+        top: 50%;
     }
 
-    &:before,
-    &:after {
-        content: '';
+    &::before,
+    &::after {
+        content: "";
     }
 
-    &:before {
+    &::before {
         top: 12px;
     }
 
-    &:after {
+    &::after {
         bottom: 12px;
     }
 
@@ -50,47 +55,43 @@ button {
     &.active {
         span {
             @include transform(translateX(100%));
-            visibility: hidden;
             opacity: 0;
+            visibility: hidden;
         }
 
-        &:before,
-        &:after {
-            top: 50%;
-            bottom: auto;
-            width: 20px;
+        &::before,
+        &::after {
             @include transform-origin(50% 50%);
             background-color: #fc354c;
+            bottom: auto;
+            top: 50%;
+            width: 20px;
         }
 
-        &:before {
+        &::before {
             @include transform(rotate(45deg));
         }
 
-        &:after {
+        &::after {
             @include transform(rotate(-45deg));
         }
-    }
-
-    @include media('<lg') {
-        display: inline-block;
     }
 }
 
 .ps-btn,
 button.ps-btn {
+    background-color: $color-1st;
+    border: none;
+    border-radius: 4px;
+    color: $color-heading;
+    cursor: pointer;
     display: inline-block;
-    padding: 15px 45px;
     font-size: 16px;
     font-weight: 600;
-    line-height: 20px;
-    color: $color-heading;
-    border: none;
     font-weight: 600;
-    border-radius: 4px;
-    background-color: $color-1st;
+    line-height: 20px;
+    padding: 15px 45px;
     transition: all 0.4s ease;
-    cursor: pointer;
 
     &--rounded {
         @include border-radius(50px);
@@ -101,26 +102,26 @@ button.ps-btn {
     }
 
     &--outline {
+        @include box-shadow(none);
+        background-color: transparent;
         border: 2px solid $color-1st;
         color: $color-1st;
-        background-color: transparent;
-        @include box-shadow(none);
         font-weight: 500;
 
         &:hover {
-            color: #ffffff;
             background-color: $color-1st;
+            color: #fff;
         }
     }
 
     &--fullwidth {
-        width: 100%;
         text-align: center;
+        width: 100%;
     }
 
     &--sm {
-        padding: 0.5rem 2rem;
         font-size: 1.2rem;
+        padding: 0.5rem 2rem;
 
         &.ps-btn--curve {
             @include border-radius(3px);
@@ -132,8 +133,8 @@ button.ps-btn {
     }
 
     &--xl {
-        padding: 2rem 6rem;
         font-size: 1.6rem;
+        padding: 2rem 6rem;
     }
 
     &.ps-btn--reverse {
@@ -146,7 +147,7 @@ button.ps-btn {
 
     &.ps-btn--gray {
         background-color: #e5e5e5;
-        color: #000000;
+        color: #000;
         font-size: 1.6rem;
     }
 
@@ -160,7 +161,7 @@ button.ps-btn {
 
             &:hover {
                 background-color: $color-heading;
-                color: #ffffff;
+                color: #fff;
             }
         }
     }
@@ -177,19 +178,19 @@ button.ps-btn {
 }
 
 .ps-btn--favorite {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    border: none;
-    font-size: 18px;
     @include border-radius(50%);
+    border: none;
+    display: inline-block;
+    font-size: 18px;
+    height: 40px;
+    position: relative;
     vertical-align: top;
+    width: 40px;
 
     i {
         @include center();
-        color: #000000;
         @include transition(all 0.4s ease);
+        color: #000;
     }
 
     &:hover {
@@ -200,76 +201,78 @@ button.ps-btn {
 }
 
 .ps-btn--close {
-    display: inline-block;
-    position: relative;
-    width: 30px;
-    height: 30px;
     @include transition(all 0.4s ease);
     @include border-radius(50%);
-    &:before,
-    &:after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 2px;
-        height: 50%;
-        background-color: #9f9a98;
+    display: inline-block;
+    height: 30px;
+    position: relative;
+    width: 30px;
+
+    &::before,
+    &::after {
         @include transform-origin(center center);
         @include transition(all 0.4s ease);
+        background-color: #9f9a98;
+        content: "";
+        height: 50%;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        width: 2px;
     }
 
-    &:before {
+    &::before {
         @include transform(translate(-50%, -50%) rotate(45deg));
     }
 
-    &:after {
+    &::after {
         @include transform(translate(-50%, -50%) rotate(-45deg));
     }
 
     &:hover {
         @include transform(rotate(180deg));
 
-        &:before,
-        &:after {
-            background-color: #f44336;
+        &::before,
+        &::after {
             @include transition-delay(0.3s);
+            background-color: #f44336;
         }
     }
 }
 
 #back2top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 45px;
-    height: 45px;
-    z-index: 10000;
-    background-color: transparent;
-    border: 1px solid #e4e4e4;
-    border-radius: 4px;
     @include transition(all 0.5s ease);
     @include box-shadow(0 0 3px 0 rgba(0, 0, 0, 0.2));
     @include transition(all 0.4s ease);
+    background-color: transparent;
+    border: 1px solid #e4e4e4;
+    border-radius: 4px;
+    bottom: 30px;
+    height: 45px;
+    position: fixed;
+    right: 30px;
+    width: 45px;
+    z-index: 10000;
+
+    @include media("<lg") {
+        display: none;
+    }
 
     i {
         @include center();
-        z-index: 10001;
-        font-size: 16px;
         color: $color-text;
+        font-size: 16px;
+        z-index: 10001;
     }
 
     &:hover {
-        cursor: pointer;
         background-color: #fff;
         border-color: #fff;
         box-shadow: 0 0 10px 2px rgba($color-1st, 0.5);
+        cursor: pointer;
+
         i {
             color: $color-1st;
         }
-    }
-
-    @include media('<lg') {
-        display: none;
     }
 }

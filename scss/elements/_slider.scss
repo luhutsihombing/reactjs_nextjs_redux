@@ -1,28 +1,32 @@
 .ps-carousel {
-    position: relative;
     padding-right: 2px;
+    position: relative;
+
     .ps-product {
-        margin-right: 6px;
         margin-bottom: 5px;
+        margin-right: 6px;
     }
 
     .slick-arrow {
         @include vertical-align();
-        width: 40px;
-        height: 40px;
-        border: none;
-        background-color: transparent;
-        display: flex;
-        justify-content: center;
         align-items: center;
+        background-color: transparent;
+        border: none;
         border-radius: 0;
+        display: flex;
+        height: 40px;
+        justify-content: center;
+        width: 40px;
         z-index: 100;
+
         i {
             font-size: 16px;
         }
+
         &:hover {
             background-color: $color-1st;
         }
+
         &.slick-prev {
             left: 0;
         }
@@ -33,30 +37,34 @@
     }
 
     .slick-dots {
+        list-style-type: none;
         margin: 0;
         padding: 0;
-        width: 100%;
-        list-style-type: none;
         text-align: center;
+        width: 100%;
+
         > li {
             display: inline-block;
             margin-right: 10px;
             vertical-align: top;
+
             button {
-                display: block;
-                vertical-align: top;
-                padding: 0;
-                font-size: 0;
-                border-radius: 0;
-                border: none;
-                width: 10px;
-                height: 10px;
                 background-color: rgba(#000, 0.3);
+                border: none;
+                border-radius: 0;
                 border-radius: 50%;
+                display: block;
+                font-size: 0;
+                height: 10px;
+                padding: 0;
+                vertical-align: top;
+                width: 10px;
             }
+
             &:last-child {
                 margin-right: 0;
             }
+
             &.slick-active {
                 button {
                     background-color: $color-1st;
@@ -93,7 +101,8 @@
 
     &.blur {
         .slick-arrow {
-            background-color: rgba(#ccc, .5);
+            background-color: rgba(#ccc, 0.5);
+
             &:hover {
                 background-color: $color-1st;
             }

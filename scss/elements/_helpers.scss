@@ -58,12 +58,12 @@
 }
 
 html .bg--parallax {
-    position: relative;
-    z-index: 10;
     background-attachment: fixed !important;
+    background-position: 50% 50%;
     background-repeat: no-repeat !important;
     background-size: cover !important;
-    background-position: 50% 50%;
+    position: relative;
+    z-index: 10;
 }
 
 .bg--cover {
@@ -79,8 +79,8 @@ html .bg--parallax {
 %list-reset {
     ul,
     ol {
+        list-style: none;
         margin: 0;
         padding: 0;
-        list-style: none;
     }
 }

@@ -25,7 +25,7 @@
 
         .menu__toggle {
             &:hover {
-                &:before {
+                &::before {
                     background-color: $color-organic;
                 }
             }
@@ -37,7 +37,7 @@
 
         button {
             background-color: $color-organic;
-            color: #ffffff;
+            color: #fff;
         }
 
         .ps-form__categories {
@@ -47,12 +47,12 @@
 
         .form-group--icon {
             border: 1px solid #e1e1e1;
-            min-width: 80px;
             border-radius: 4px 0 0 4px;
+            min-width: 80px;
 
             select {
-                height: 40px;
                 border: none;
+                height: 40px;
             }
         }
 
@@ -69,11 +69,11 @@
     }
 
     .header__top {
-        background-color: #ffffff;
+        background-color: #fff;
     }
 
     .navigation {
-        background-color: #ffffff;
+        background-color: #fff;
     }
 
     .menu--organic {
@@ -115,7 +115,7 @@
 
         &.header--sticky {
             .navigation--mobile {
-                background-color: #ffffff;
+                background-color: #fff;
             }
         }
     }

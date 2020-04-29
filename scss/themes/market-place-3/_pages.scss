@@ -1,8 +1,29 @@
 #homepage-5 {
+    background-color: #eee;
     padding: 70px 0;
-    background-color: #eeeeee;
 
     .ps-home-banner {
+
+        @include media("<lg") {
+            .ps-section__left {
+                display: none;
+            }
+        }
+
+        @include media("<md") {
+            .container {
+                flex-flow: column wrap;
+
+                .ps-section__center {
+                    max-width: 100%;
+                }
+
+                .ps-section__right {
+                    max-width: 100%;
+                }
+            }
+        }
+
         .container {
             display: flex;
             flex-flow: row nowrap;
@@ -14,14 +35,14 @@
         }
 
         .ps-section__left {
-            position: relative;
+            background-color: #fff;
             max-width: 270px;
-            background-color: #ffffff;
+            position: relative;
 
             .menu--dropdown {
+                list-style: none;
                 margin: 0;
                 padding: 0;
-                list-style: none;
 
                 > li {
                     > a {
@@ -31,52 +52,36 @@
             }
 
             .mega-menu {
-                z-index: 100;
                 min-height: 100%;
+                z-index: 100;
             }
         }
 
         .ps-section__center {
             max-width: calc(100% - 652px);
+
             img {
                 width: 100%;
             }
-
         }
 
         .ps-section__right {
-            max-width: 382px;
+            align-items: flex-start;
             display: flex;
             flex-flow: row wrap;
-            align-items: flex-start;
             justify-content: flex-start;
+            max-width: 382px;
 
             > a {
                 display: block;
                 max-width: 50%;
                 width: 100%;
+
                 img {
                     width: 100%;
                 }
+
                 &.wide {
-                    max-width: 100%;
-                }
-            }
-        }
-
-        @include media('<lg') {
-            .ps-section__left {
-                display: none;
-            }
-        }
-
-        @include media('<md') {
-            .container {
-                flex-flow: column wrap;
-                .ps-section__center {
-                    max-width: 100%;
-                }
-                .ps-section__right {
                     max-width: 100%;
                 }
             }
@@ -92,13 +97,13 @@
                 font-size: 18px;
 
                 del {
-                    margin-left: 10px;
                     font-size: 14px;
+                    margin-left: 10px;
                 }
 
                 small {
-                    margin-left: 10px;
                     color: red;
+                    margin-left: 10px;
                 }
             }
         }

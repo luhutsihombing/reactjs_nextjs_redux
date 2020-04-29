@@ -3,43 +3,45 @@ body {
     min-height: 100%;
     position: relative;
 }
+
 .ps-row {
     @include clearfix();
     margin: 0 -15px;
+    @include media("<md") {
+        .ps-column {
+            width: calc(100% / 3);
+        }
+    }
+    @include media("<sm") {
+        .ps-column {
+            width: calc(100% / 2);
+        }
+    }
+    @include media("<xs") {
+        .ps-column {
+            width: 100%;
+        }
+    }
+
     .ps-column {
         float: left;
-        width: 20%;
         padding: 0 15px;
+        width: 20%;
     }
     @media (max-width: 1600px) {
         .ps-column {
             width: 25%;
         }
     }
-    @include media('<md') {
-        .ps-column {
-            width: calc(100% / 3);
-        }
-    }
-    @include media('<sm') {
-        .ps-column {
-            width: calc(100% / 2);
-        }
-    }
-    @include media('<xs') {
-        .ps-column {
-            width: 100%;
-        }
-    }
 }
 
 .ps-col-tiny {
-    @include media('<sm') {
+    @include media("<sm") {
         .col-xs-12 {
             width: 50%;
         }
     }
-    @include media('<xs') {
+    @include media("<xs") {
         .col-xs-12 {
             width: 100%;
         }
@@ -51,15 +53,15 @@ body {
 }
 
 .ps-container {
-    max-width: 1650px;
     margin: 0 auto;
+    max-width: 1650px;
     padding: 0 15px;
-    @media (max-width: 1680px) {
-        padding: 0 30px;
-        max-width: 100%;
-    }
-    @include media('<xs') {
+    @include media("<xs") {
         padding: 0 15px;
+    }
+    @media (max-width: 1680px) {
+        max-width: 100%;
+        padding: 0 30px;
     }
 }
 
