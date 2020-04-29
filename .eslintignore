@@ -1,0 +1,8 @@
+# don't ever lint node_modules
+node_modules
+/.next/
+/out/
+.now
+/.pnp
+.pnp.js
+# don't lint nyc coverage output
