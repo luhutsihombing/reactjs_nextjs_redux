@@ -16,6 +16,7 @@ import NavigationList from '../components/shared/navigation/NavigationList';
 import HomeDefaultDealOfDay from '../components/partials/homepage/home-default/HomeDefaultDealOfDay';
 import HomeDefaultTopCategories from '../components/partials/homepage/home-default/HomeDefaultTopCategories';
 import SubscribePopup from '../components/shared/SubscribePopup';
+import Carousel from '../components/partials/homepage/fifada/carousel/Carousel';
 // import '../scss/home-default.scss';
 
 const Index = () => {
@@ -34,6 +35,7 @@ const Index = () => {
       <main id="homepage-1">
         <HomeBanner />
         <SiteFeatures />
+        <Carousel />
         <HomeDefaultDealOfDay />
         <HomeAdsColumns />
         <HomeDefaultTopCategories />

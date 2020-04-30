@@ -13,7 +13,7 @@ class HeaderProduct extends Component<{productData: any; dispatch?(val: any): vo
   }
 
   componentDidMount() {
-    if (process.browser) {
+    if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.handleScroll);
     }
   }

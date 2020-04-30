@@ -14,7 +14,7 @@ class HeaderTechnology extends Component {
   }
 
   componentDidMount() {
-    if (process.browser) {
+    if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.handleScroll);
     }
   }
