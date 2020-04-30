@@ -8,6 +8,8 @@ class MenuDropdown extends PureComponent<{menuData: any}> {
 
   render() {
     const {menuData} = this.props;
+    let keyCounter = 0;
+
     return (
       <li className={menuData.subMenu ? 'menu-item-has-children dropdown' : ''}>
         {/* <Link href={menuData.url} as={menuData.url}>
@@ -25,7 +27,7 @@ class MenuDropdown extends PureComponent<{menuData: any}> {
         {menuData.subMenu ? (
           <ul className={menuData.subClass}>
             {menuData.subMenu.map(subMenuItem => (
-              <MenuDropdown menuData={subMenuItem} key={subMenuItem} />
+              <MenuDropdown menuData={subMenuItem} key={keyCounter++} />
             ))}
           </ul>
         ) : (
